@@ -1,4 +1,4 @@
-package com.makentoshe.androidgithubcitemplate
+package com.megaprojectsuperpuper.thecode
 
 import org.junit.Test
 
