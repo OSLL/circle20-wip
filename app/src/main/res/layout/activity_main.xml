@@ -24,16 +24,14 @@
         android:id="@+id/imageView"
         android:layout_width="398dp"
         android:layout_height="439dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="120dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524"
         app:srcCompat="@drawable/safe_1"
         tools:srcCompat="@drawable/safe_1"
         tools:visibility="visible" />
@@ -47,7 +45,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.562" />
@@ -60,21 +58,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.398" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="Пока все просто"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/button1"
@@ -157,8 +144,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RadioGroup
         android:id="@+id/button11"
@@ -220,12 +209,14 @@
         android:id="@+id/mainbutton"
         android:layout_width="400dp"
         android:layout_height="658dp"
-        android:layout_marginStart="4dp"
         android:layout_marginBottom="4dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/stolv_3_0" />
+        app:srcCompat="@drawable/stolv_3_0"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/textView3"
@@ -233,10 +224,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="42dp"
-        android:layout_marginBottom="75dp"
         android:text="1.Пока все просто"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/mainbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />

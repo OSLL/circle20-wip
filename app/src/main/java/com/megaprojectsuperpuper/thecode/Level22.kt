@@ -4,6 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_level22.*
+import kotlinx.android.synthetic.main.activity_level22.button1
+import kotlinx.android.synthetic.main.activity_level22.button10
+import kotlinx.android.synthetic.main.activity_level22.button11
+import kotlinx.android.synthetic.main.activity_level22.button12
+import kotlinx.android.synthetic.main.activity_level22.button13
+import kotlinx.android.synthetic.main.activity_level22.button4
+import kotlinx.android.synthetic.main.activity_level22.button5
+import kotlinx.android.synthetic.main.activity_level22.button6
+import kotlinx.android.synthetic.main.activity_level22.button7
+import kotlinx.android.synthetic.main.activity_level22.button8
+import kotlinx.android.synthetic.main.activity_level22.button9
+import kotlinx.android.synthetic.main.activity_level22.textView
+import kotlinx.android.synthetic.main.activity_level22.textView4
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 //import kotlinx.android.synthetic.main.activity_main2.button1
 //import kotlinx.android.synthetic.main.activity_main2.button10
@@ -25,7 +39,6 @@ class Level22 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level22)
-        var str = ""
         button14.setOnClickListener{
             textView.text = check
         }
@@ -33,7 +46,10 @@ class Level22 : AppCompatActivity() {
             text += "4 "
             textView4.setText(text)
             bool()
-//a()
+
+        }
+        button4.setOnClickListener{
+            textView.text = check
         }
         button5.setOnClickListener{
             text += "5 "
@@ -93,11 +109,6 @@ class Level22 : AppCompatActivity() {
                 text = ""
                 i = 0
             }
-        }
-    }
-    fun a():Unit{
-        if (i == 4){
-            i = 0
         }
     }
 }

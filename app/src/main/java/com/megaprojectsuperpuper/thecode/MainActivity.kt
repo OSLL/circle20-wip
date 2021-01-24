@@ -31,9 +31,7 @@ class MainActivity : AppCompatActivity() {
             //startActivity(intent)
             //запуска второй активити в вводом кода
             mainbutton.visibility = View.INVISIBLE
-            textView3.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
-            textView2.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE
             button1.visibility = View.VISIBLE
@@ -51,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun Level12() {
-        var str = ""
         button4.setOnClickListener{
             textView.text = check
         }
@@ -59,7 +56,6 @@ class MainActivity : AppCompatActivity() {
             text += "1 "
             textView4.setText(text)
             bool()
-            //a()
         }
         button5.setOnClickListener{
             text += "2 "
@@ -110,7 +106,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun bool(): Unit{
         i++
-        textView2.text = text
         if (i == 4){
             if(text.equals(check)){
                 kubok()

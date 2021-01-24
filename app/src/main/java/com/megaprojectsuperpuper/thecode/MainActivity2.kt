@@ -74,7 +74,6 @@ class MainActivity2 : AppCompatActivity() {
 //    }
     fun bool(): Unit{
         i++
-        textView2.text = text
         if (i == 4){
             if(text.equals(check)){
                 val intent = Intent(this, MainActivityf::class.java)
