@@ -6,9 +6,12 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
+import java.util.*
+import kotlin.concurrent.schedule
 
 class Level3 : AppCompatActivity() {
     var i = 0
+    var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
     var name = "3. ..--- ----. --... ....."
@@ -48,57 +51,80 @@ class Level3 : AppCompatActivity() {
     }
     fun Level12() {
         button4.setOnClickListener{
-            textView.text = check
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = check
+            }
         }
         button1.setOnClickListener{
-            text += "1 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "1 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button5.setOnClickListener{
-            text += "2 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "2 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button6.setOnClickListener{
-            text += "3 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "3 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button7.setOnClickListener{
-            text += "4 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "4 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button8.setOnClickListener{
-            text += "5 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "5 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button9.setOnClickListener{
-            text += "6 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "6 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button10.setOnClickListener{
-            text += "7 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "7 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button11.setOnClickListener{
-            text += "8 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "8 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button12.setOnClickListener{
-            text += "9 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "9 "
+                textView4.setText(text)
+                bool()
+            }
         }
         button13.setOnClickListener{
-            text += "0 "
-            textView4.setText(text)
-            bool()
+            if (editcheck) {
+                text += "0 "
+                textView4.setText(text)
+                bool()
+            }
         }
 
     }
@@ -111,6 +137,15 @@ class Level3 : AppCompatActivity() {
             else{
                 text = ""
                 i = 0
+                editcheck = false
+                textView.visibility = View.INVISIBLE
+                error.visibility = View.VISIBLE
+                Timer("settingUp", false).schedule(1500) {
+                    textView4.setText(text)
+                    editcheck = true
+                    error.visibility = View.INVISIBLE
+                    //textView.visibility = View.VISIBLE
+                }
             }
         }
     }
