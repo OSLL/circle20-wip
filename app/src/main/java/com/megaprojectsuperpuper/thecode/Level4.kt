@@ -17,12 +17,9 @@ class Level4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
-        textView2.setText(name)
         mainbutton.setOnClickListener {
             mainbutton.visibility = View.INVISIBLE
-            textView3.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
-            textView2.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE
             button1.visibility = View.VISIBLE
