@@ -127,7 +127,6 @@ class Level1 : AppCompatActivity() {
                 bool()
             }
         }
-
     }
     fun bool(): Unit{
         i++
@@ -136,17 +135,21 @@ class Level1 : AppCompatActivity() {
                 kubok()
             }
             else{
+                textView.visibility = View.INVISIBLE
                 text = ""
                 i = 0
-                textView.visibility = View.INVISIBLE
                 editcheck = false
                 error.visibility = View.VISIBLE
                 Timer("settingUp", false).schedule(1500) {
                     textView4.setText(text)
                     editcheck = true
                     error.visibility = View.INVISIBLE
+                    //Log.d("pupok", "gjrj")
                     //textView.visibility = View.VISIBLE
                 }
+                //Log.d("pupok","kok")
+                //if (i == 0) textView.visibility = View.VISIBLE
+
             }
         }
     }

@@ -15,7 +15,7 @@ class Level4 : AppCompatActivity() {
     var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
-    var name = "4. Прислушайся"
+    var name = "4.Прислушайся"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
@@ -40,10 +40,15 @@ class Level4 : AppCompatActivity() {
     }
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 //setContentView(R.layout.activity_main)
-        textView.text = check
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            return false
+        }
+        textView.text = check
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
             a+=0.1f
             textView.alpha = a
+            textView.visibility = View.VISIBLE
+            if (a < 1) return false
         }
         button1.setOnClickListener{
             if (editcheck) {
