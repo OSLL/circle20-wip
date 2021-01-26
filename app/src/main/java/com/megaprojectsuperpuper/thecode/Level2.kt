@@ -1,6 +1,7 @@
 package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,6 +15,7 @@ class Level2 : AppCompatActivity() {
     var name = "2.Беспорядок"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
         Level11()
@@ -47,7 +49,7 @@ class Level2 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        button4.setOnClickListener{
+        button322.setOnClickListener{
             textView.text = check
         }
         button1.setOnClickListener{

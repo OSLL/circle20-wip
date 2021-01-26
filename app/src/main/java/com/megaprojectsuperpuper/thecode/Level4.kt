@@ -1,11 +1,14 @@
 package com.megaprojectsuperpuper.thecode
 
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
+import kotlinx.android.synthetic.main.activity_mainf.*
 
 class Level4 : AppCompatActivity() {
     var a : Float = 0.0f
@@ -15,6 +18,7 @@ class Level4 : AppCompatActivity() {
     var name = "4. Прислушайся"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
         mainbutton.setOnClickListener {
@@ -33,6 +37,13 @@ class Level4 : AppCompatActivity() {
             button11.visibility = View.VISIBLE
             button12.visibility = View.VISIBLE
             button13.visibility = View.VISIBLE
+        }
+    }
+    fun kubok(){
+        setContentView(R.layout.activity_mainf)
+        buttonlvl.setOnClickListener(){
+            val intent = Intent(this, Level6::class.java)
+            startActivity(intent)
         }
     }
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -98,7 +109,7 @@ class Level4 : AppCompatActivity() {
         i++
         if (i == 4){
             if(text.equals(check)){
-                this.finish()
+                kubok()
             }
             else{
                 text = ""

@@ -1,35 +1,39 @@
 package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 
-class Level1 : AppCompatActivity() {
+class Level6 : AppCompatActivity() {
     var i = 0
     var text = ""
     var check = "1 2 3 4 "
-    var name = "1.Пока все просто"
+    var name = "6. Теперь лучше!"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
         Level11()
     }
+
     fun kubok(){
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level2::class.java)
+            val intent = Intent(this, Level6::class.java)
             startActivity(intent)
         }
     }
     fun Level11(){
-        mainbutton.setOnClickListener{
-            //запуска второй активити в вводом кода
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            setContentView(R.layout.activity_level6)
+        }
+
+        else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        mainbutton.setOnClickListener {
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
@@ -46,6 +50,7 @@ class Level1 : AppCompatActivity() {
             button12.visibility = View.VISIBLE
             button13.visibility = View.VISIBLE
             Level12()
+        }
         }
     }
     fun Level12() {
