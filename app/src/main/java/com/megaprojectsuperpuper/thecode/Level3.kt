@@ -28,6 +28,7 @@ class Level3 : AppCompatActivity() {
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level4::class.java)
             startActivity(intent)
+            this.finish()
         }
     }
     fun Level11(){
@@ -52,12 +53,12 @@ class Level3 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        button4.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = check
-            }
-        }
+        //button4.setOnClickListener{
+        //    if (editcheck) {
+        //        textView.visibility = View.VISIBLE
+        //        textView.text = check
+        //    }
+        //}
         button1.setOnClickListener{
             if (editcheck) {
                 text += "1 "

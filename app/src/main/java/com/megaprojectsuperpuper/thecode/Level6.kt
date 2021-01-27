@@ -41,6 +41,7 @@ class Level6 : AppCompatActivity() {
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level7::class.java)
             startActivity(intent)
+            this.finish()
         }
     }
     fun Level11(){

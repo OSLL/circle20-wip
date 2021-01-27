@@ -42,7 +42,7 @@ class Level4 : AppCompatActivity() {
     }
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 //setContentView(R.layout.activity_main)
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+        if (keyCode != KeyEvent.KEYCODE_VOLUME_UP) {
             return false
         }
         textView.text = check
@@ -129,6 +129,7 @@ class Level4 : AppCompatActivity() {
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level6::class.java)
             startActivity(intent)
+            this.finish()
         }
     }
     fun bool(): Unit{

@@ -32,6 +32,7 @@ class Level7 : AppCompatActivity() {
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level2::class.java)
             startActivity(intent)
+            this.finish()
         }
 
     }
@@ -39,7 +40,7 @@ class Level7 : AppCompatActivity() {
         timer?.cancel()
         val intent = Intent(this, Level7::class.java)
         startActivity(intent)
-
+        this.finish()
     }
     fun Level11(){
         mainbutton.setOnClickListener{
