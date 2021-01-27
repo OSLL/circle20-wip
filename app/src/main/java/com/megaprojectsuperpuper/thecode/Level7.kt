@@ -9,6 +9,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
+import kotlin.concurrent.schedule
 
 class Level7 : AppCompatActivity() {
     var i = 0
@@ -133,10 +134,10 @@ class Level7 : AppCompatActivity() {
             if(text.equals(check)){
                 return
             }
-            else{
+            else {
                 text = ""
                 i = 0
+                }
             }
         }
     }
-}

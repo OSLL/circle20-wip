@@ -1,11 +1,13 @@
 package com.megaprojectsuperpuper.thecode
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
+import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -122,11 +124,18 @@ class Level4 : AppCompatActivity() {
         }
         return true
     }
+    fun kubok(){
+        setContentView(R.layout.activity_mainf)
+        buttonlvl.setOnClickListener(){
+            val intent = Intent(this, Level6::class.java)
+            startActivity(intent)
+        }
+    }
     fun bool(): Unit{
         i++
         if (i == 4){
             if(text.equals(check)){
-                this.finish()
+                kubok()
             }
             else{
                 text = ""
