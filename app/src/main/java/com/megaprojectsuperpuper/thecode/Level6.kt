@@ -2,38 +2,48 @@ package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
-import java.util.*
-import kotlin.concurrent.schedule
 
-class Level1 : AppCompatActivity() {
+
+class Level6 : AppCompatActivity() {
     var i = 0
-    var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
-    var name = "1.Пока все просто"
+    var name = "6. Не тот угол"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
-        Level11()
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            val params =
+                mainbutton.getLayoutParams()
+            params.width += 1000
+            params.height += 250
+            mainbutton.setLayoutParams(params)
+        }
+        else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            name = "6. Теперь лучше!"
+            textView3.setText(name)
+            Level11()
+        }
     }
+
     fun kubok(){
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level2::class.java)
+            val intent = Intent(this, Level7::class.java)
             startActivity(intent)
         }
     }
     fun Level11(){
-        mainbutton.setOnClickListener{
-            //запуска второй активити в вводом кода
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+
+        mainbutton.setOnClickListener {
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
@@ -51,84 +61,65 @@ class Level1 : AppCompatActivity() {
             button13.visibility = View.VISIBLE
             Level12()
         }
+
     }
     fun Level12() {
-        button4.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
+            setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+
+            button4.setOnClickListener {
                 textView.text = check
             }
-        }
-        button1.setOnClickListener{
-            if (editcheck){
-            text += "1 "
-            textView4.setText(text)
-            bool()
+            button1.setOnClickListener {
+                text += "1 "
+                textView4.setText(text)
+                bool()
             }
-        }
-        button5.setOnClickListener{
-            if (editcheck) {
+            button5.setOnClickListener {
                 text += "2 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button6.setOnClickListener{
-            if (editcheck) {
+            button6.setOnClickListener {
                 text += "3 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button7.setOnClickListener{
-            if (editcheck) {
+            button7.setOnClickListener {
                 text += "4 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button8.setOnClickListener{
-            if (editcheck) {
+            button8.setOnClickListener {
                 text += "5 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button9.setOnClickListener{
-            if (editcheck) {
+            button9.setOnClickListener {
                 text += "6 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button10.setOnClickListener{
-            if (editcheck) {
+            button10.setOnClickListener {
                 text += "7 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button11.setOnClickListener{
-            if (editcheck) {
+            button11.setOnClickListener {
                 text += "8 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button12.setOnClickListener{
-            if (editcheck) {
+            button12.setOnClickListener {
                 text += "9 "
                 textView4.setText(text)
                 bool()
             }
-        }
-        button13.setOnClickListener{
-            if (editcheck) {
+            button13.setOnClickListener {
                 text += "0 "
                 textView4.setText(text)
                 bool()
             }
-        }
+
     }
     fun bool(): Unit{
         i++
@@ -137,21 +128,8 @@ class Level1 : AppCompatActivity() {
                 kubok()
             }
             else{
-                textView.visibility = View.INVISIBLE
                 text = ""
                 i = 0
-                editcheck = false
-                error.visibility = View.VISIBLE
-                Timer("settingUp", false).schedule(1500) {
-                    textView4.setText(text)
-                    editcheck = true
-                    error.visibility = View.INVISIBLE
-                    //Log.d("pupok", "gjrj")
-                    //textView.visibility = View.VISIBLE
-                }
-                //Log.d("pupok","kok")
-                //if (i == 0) textView.visibility = View.VISIBLE
-
             }
         }
     }
