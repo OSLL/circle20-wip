@@ -1,28 +1,39 @@
 package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
-import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.TextView
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
 
-class Level4 : AppCompatActivity() {
-    var a : Float = 0.0f
+class Level5 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
-    var name = "4.Прислушайся"
+    var name = "5.Лезь под стол"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
-        mainbutton.setOnClickListener {
+        Level11()
+    }
+    fun kubok(){
+        setContentView(R.layout.activity_mainf)
+        buttonlvl.setOnClickListener(){
+            val intent = Intent(this, Level6::class.java)
+            startActivity(intent)
+            this.finish()
+        }
+    }
+    fun Level11(){
+        mainbutton.setOnClickListener{
+            //запуска второй активити в вводом кода
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
@@ -38,22 +49,18 @@ class Level4 : AppCompatActivity() {
             button11.visibility = View.VISIBLE
             button12.visibility = View.VISIBLE
             button13.visibility = View.VISIBLE
+            Level12()
         }
     }
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-//setContentView(R.layout.activity_main)
-        if (keyCode != KeyEvent.KEYCODE_VOLUME_UP) {
-            return false
-        }
-        textView.text = check
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            a+=0.1f
-            textView.alpha = a
-            textView.visibility = View.VISIBLE
-            if (a < 1) return false
+    fun Level12() {
+        button4.setOnClickListener{
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = check
+            }
         }
         button1.setOnClickListener{
-            if (editcheck) {
+            if (editcheck){
                 text += "1 "
                 textView4.setText(text)
                 bool()
@@ -122,15 +129,6 @@ class Level4 : AppCompatActivity() {
                 bool()
             }
         }
-        return true
-    }
-    fun kubok(){
-        setContentView(R.layout.activity_mainf)
-        buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level5::class.java)
-            startActivity(intent)
-            this.finish()
-        }
     }
     fun bool(): Unit{
         i++
@@ -139,18 +137,21 @@ class Level4 : AppCompatActivity() {
                 kubok()
             }
             else{
+                textView.visibility = View.INVISIBLE
                 text = ""
                 i = 0
                 editcheck = false
-                textView.visibility = View.INVISIBLE
                 error.visibility = View.VISIBLE
                 Timer("settingUp", false).schedule(1500) {
                     textView4.setText(text)
                     editcheck = true
                     error.visibility = View.INVISIBLE
-
+                    //Log.d("pupok", "gjrj")
                     //textView.visibility = View.VISIBLE
                 }
+                //Log.d("pupok","kok")
+                //if (i == 0) textView.visibility = View.VISIBLE
+
             }
         }
     }
