@@ -2,14 +2,16 @@ package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+
 
 class Level1 : AppCompatActivity() {
     var i = 0
@@ -17,13 +19,17 @@ class Level1 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "1.Пока все просто"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
         Level11()
     }
+
+
+
     fun kubok(){
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
@@ -34,6 +40,7 @@ class Level1 : AppCompatActivity() {
     }
     fun Level11(){
         mainbutton.setOnClickListener{
+
             //запуска второй активити в вводом кода
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
