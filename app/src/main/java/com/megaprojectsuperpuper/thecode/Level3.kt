@@ -1,6 +1,7 @@
 package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlinx.android.synthetic.main.activity_menu.*
 
 class Level3 : AppCompatActivity() {
     var i = 0
@@ -16,16 +18,30 @@ class Level3 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "3. ..--- ----. --... ....."
+
+    private lateinit var prefs: SharedPreferences
+    var lvlcheck = prefs.getInt("lvlcheck", 0)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
+
+
+
+        button.setOnClickListener(){
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
         Level11()
     }
     fun kubok(){
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
+            lvlcheck++
             val intent = Intent(this, Level4::class.java)
             startActivity(intent)
             this.finish()

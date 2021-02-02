@@ -1,6 +1,8 @@
 package com.megaprojectsuperpuper.thecode
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlinx.android.synthetic.main.activity_menu.*
 
 class Level1 : AppCompatActivity() {
     var i = 0
@@ -17,16 +20,47 @@ class Level1 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "1.Пока все просто"
+    var lvlcheck = 1
+    private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
+
+
+
+        button.setOnClickListener(){
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
         Level11()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // Запоминаем данные
+        val editor = prefs.edit()
+        editor.putInt("lvlcheck", lvlcheck)
+    }
+    override fun onResume() {
+        super.onResume()
+
+        if(prefs.contains("lvlcheck")){
+            // Получаем число из настроек
+            lvlcheck = prefs.getInt("lvlcheck", 0)
+
+        }
     }
     fun kubok(){
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
+            lvlcheck++
             val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             this.finish()

@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlinx.android.synthetic.main.activity_menu.*
 
 
 class Level6 : AppCompatActivity() {
@@ -18,10 +19,21 @@ class Level6 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "6. Не тот угол"
+    var lvlcheck = 6
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
+
+
+
+        button.setOnClickListener(){
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
             val params =
                 mainbutton.getLayoutParams()

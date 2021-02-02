@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlinx.android.synthetic.main.activity_menu.*
 
 class Level7 : AppCompatActivity() {
     var i = 0
@@ -18,12 +19,24 @@ class Level7 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "7. Вовремя остановись"
+    var lvlcheck = 7
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         textView3.setText(name)
         timer = Timer()
+
+
+
+        button.setOnClickListener(){
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
 
         Level11()
     }

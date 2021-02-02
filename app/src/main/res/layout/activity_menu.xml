@@ -7,11 +7,144 @@
     tools:context=".menu">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="38dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:id="@+id/lvl5"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="168dp"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:text="5"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        android:visibility="invisible"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl6"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="168dp"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:visibility="invisible"
+        android:text="6"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl7"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="168dp"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:visibility="invisible"
+        android:text="7"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl8"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="168dp"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:visibility="invisible"
+        android:text="8"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl4"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="72dp"
+        android:visibility="invisible"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:text="4"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl3"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="72dp"
+        android:visibility="invisible"
+        android:background="#FF0000"
+        android:backgroundTint="#AFACAC"
+        android:text="3"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl2"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="72dp"
+        android:background="#FF0000"
+        android:visibility="invisible"
+        android:backgroundTint="#AFACAC"
+        android:text="2"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textColorHighlight="#F60000"
+        android:textColorHint="#FF0000"
+        android:textColorLink="#FF0000"
+        app:iconTint="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lvl1"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="72dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
         android:text="1"
@@ -23,4 +156,99 @@
         app:iconTint="#FF0000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/block2"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/lvl6"
+        app:layout_constraintEnd_toStartOf="@+id/lvl3"
+        app:layout_constraintStart_toEndOf="@+id/lvl1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block3"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/lvl7"
+        app:layout_constraintEnd_toStartOf="@+id/lvl4"
+        app:layout_constraintStart_toEndOf="@+id/lvl2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block5"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="503dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lvl6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvl1"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block6"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="503dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lvl7"
+        app:layout_constraintStart_toEndOf="@+id/lvl5"
+        app:layout_constraintTop_toBottomOf="@+id/lvl2"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block8"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="503dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lvl7"
+        app:layout_constraintTop_toBottomOf="@+id/lvl4"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block7"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="503dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lvl8"
+        app:layout_constraintStart_toEndOf="@+id/lvl6"
+        app:layout_constraintTop_toBottomOf="@+id/lvl3"
+        app:srcCompat="@drawable/zamok" />
+
+    <ImageView
+        android:id="@+id/block4"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/block3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/zamok" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

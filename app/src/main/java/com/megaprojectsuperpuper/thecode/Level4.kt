@@ -1,6 +1,7 @@
 package com.megaprojectsuperpuper.thecode
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlinx.android.synthetic.main.activity_menu.*
 
 class Level4 : AppCompatActivity() {
     var a : Float = 0.0f
@@ -18,10 +20,22 @@ class Level4 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "4.Прислушайся"
+    var lvlcheck = 4
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         textView3.setText(name)
+
+
+
+        button.setOnClickListener(){
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
         mainbutton.setOnClickListener {
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
