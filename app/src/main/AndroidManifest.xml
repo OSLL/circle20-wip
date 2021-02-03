@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
         <activity android:name=".Level5"></activity>
+        <activity android:name=".menu" />
         <activity android:name=".Level7" />
         <activity android:name=".Level6" />
         <activity android:name=".Level4" />

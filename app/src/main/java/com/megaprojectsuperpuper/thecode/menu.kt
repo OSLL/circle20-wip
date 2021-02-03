@@ -6,13 +6,9 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import kotlinx.android.synthetic.main.activity_level1.*
-import kotlinx.android.synthetic.main.activity_mainf.*
 import kotlinx.android.synthetic.main.activity_menu.*
-import java.util.*
-import kotlin.concurrent.schedule
+
 class menu : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +16,7 @@ class menu : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        var lvlcheck = prefs.getInt("lvlcheck", 0)
+        var lvlcheck = prefs.getInt("lvlcheck", 1)
         if(lvlcheck == 2){
             block2.visibility = View.INVISIBLE
             lvl2.visibility = View.VISIBLE
@@ -30,6 +26,50 @@ class menu : AppCompatActivity() {
             lvl2.visibility = View.VISIBLE
             block3.visibility = View.INVISIBLE
             lvl3.visibility = View.VISIBLE
+        }
+        if(lvlcheck == 4){
+            block2.visibility = View.INVISIBLE
+            lvl2.visibility = View.VISIBLE
+            block3.visibility = View.INVISIBLE
+            lvl3.visibility = View.VISIBLE
+            block4.visibility = View.INVISIBLE
+            lvl4.visibility = View.VISIBLE
+        }
+        if(lvlcheck == 5){
+            block2.visibility = View.INVISIBLE
+            lvl2.visibility = View.VISIBLE
+            block3.visibility = View.INVISIBLE
+            lvl3.visibility = View.VISIBLE
+            block4.visibility = View.INVISIBLE
+            lvl4.visibility = View.VISIBLE
+            block5.visibility = View.INVISIBLE
+            lvl5.visibility = View.VISIBLE
+        }
+        if(lvlcheck == 6){
+            block2.visibility = View.INVISIBLE
+            lvl2.visibility = View.VISIBLE
+            block3.visibility = View.INVISIBLE
+            lvl3.visibility = View.VISIBLE
+            block4.visibility = View.INVISIBLE
+            lvl4.visibility = View.VISIBLE
+            block5.visibility = View.INVISIBLE
+            lvl5.visibility = View.VISIBLE
+            block6.visibility = View.INVISIBLE
+            lvl6.visibility = View.VISIBLE
+        }
+        if(lvlcheck == 7){
+            block2.visibility = View.INVISIBLE
+            lvl2.visibility = View.VISIBLE
+            block3.visibility = View.INVISIBLE
+            lvl3.visibility = View.VISIBLE
+            block4.visibility = View.INVISIBLE
+            lvl4.visibility = View.VISIBLE
+            block5.visibility = View.INVISIBLE
+            lvl5.visibility = View.VISIBLE
+            block6.visibility = View.INVISIBLE
+            lvl6.visibility = View.VISIBLE
+            block7.visibility = View.INVISIBLE
+            lvl7.visibility = View.VISIBLE
         }
 
 
