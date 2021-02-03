@@ -40,7 +40,8 @@ class Level1 : AppCompatActivity() {
     }
     fun Level11(){
         mainbutton.setOnClickListener{
-
+            val intent = Intent(this, Level3::class.java)
+            startActivity(intent)
             //запуска второй активити в вводом кода
             mainbutton.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE

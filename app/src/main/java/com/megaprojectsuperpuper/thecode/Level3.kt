@@ -14,14 +14,34 @@ class Level3 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
-    var check = "1 2 3 4 "
-    var name = "3. ..--- ----. --... ....."
+    var check = ""
+    var name = "3. "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
+        for (i in 1..5){
+            var a = Math.random()
+            check += a
+            check += " "
+        }
         textView3.setText(name)
         Level11()
+    }
+    fun toMorz(a : Int) : String{
+        var ans = "-----"
+        var c = ans.toCharArray()
+        for (i in 0..10){
+            if (a > 0){
+                if (c[i] == '-'){
+                    c[i] = '.'
+                }
+                else{
+                    c[i] = '-'
+                }
+            }
+        }
+        return ans
     }
     fun kubok(){
         setContentView(R.layout.activity_mainf)
