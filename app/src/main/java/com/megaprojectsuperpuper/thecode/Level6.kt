@@ -55,23 +55,7 @@ class Level6 : AppCompatActivity() {
             Level11()
         }
     }
-    override fun onPause() {
-        super.onPause()
 
-        // Запоминаем данные
-        val editor = prefs.edit()
-        editor.putInt("lvlcheck", lvlcheck)
-        editor.apply()
-    }
-    override fun onResume() {
-        super.onResume()
-
-        if(prefs.contains("lvlcheck")){
-            // Получаем число из настроек
-            lvlcheck = prefs.getInt("lvlcheck", 6)
-
-        }
-    }
 
     fun kubok(){
         if (prefs.getInt("lvlcheck", 6) <= 7) {

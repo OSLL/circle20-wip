@@ -61,23 +61,7 @@ class Level7 : AppCompatActivity() {
         }
 
     }
-    override fun onPause() {
-        super.onPause()
 
-        // Запоминаем данные
-        val editor = prefs.edit()
-        editor.putInt("lvlcheck", lvlcheck)
-        editor.apply()
-    }
-    override fun onResume() {
-        super.onResume()
-
-        if(prefs.contains("lvlcheck")){
-            // Получаем число из настроек
-            lvlcheck = prefs.getInt("lvlcheck", 7)
-
-        }
-    }
     fun go_back(){
         timer?.cancel()
         val intent = Intent(this, Level7::class.java)

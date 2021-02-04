@@ -144,23 +144,7 @@ class Level4 : AppCompatActivity() {
         }
         return true
     }
-    override fun onPause() {
-        super.onPause()
 
-        // Запоминаем данные
-        val editor = prefs.edit()
-        editor.putInt("lvlcheck", lvlcheck)
-        editor.apply()
-    }
-    override fun onResume() {
-        super.onResume()
-
-        if(prefs.contains("lvlcheck")){
-            // Получаем число из настроек
-            lvlcheck = prefs.getInt("lvlcheck", 4)
-
-        }
-    }
     fun kubok(){
         if (prefs.getInt("lvlcheck", 4) <= 5) {
             lvlcheck = 5
