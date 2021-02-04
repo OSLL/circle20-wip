@@ -1,6 +1,8 @@
 package com.megaprojectsuperpuper.thecode
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +11,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
-import kotlin.concurrent.schedule
 
 class Level7 : AppCompatActivity() {
     var i = 0
@@ -18,16 +19,40 @@ class Level7 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "7. Вовремя остановись"
+    var lvlcheck = 7
+    private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
-        textView3.setText(name)
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
+        lvlcheck = prefs.getInt("lvlcheck", 7)
+        lvl_name.setText(name)
         timer = Timer()
+
+
+
+        button.setOnClickListener(){
+            val editor = prefs.edit()
+            editor.putInt("lvlcheck", lvlcheck)
+            editor.apply()
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
 
         Level11()
     }
     fun kubok(){
+        if (prefs.getInt("lvlcheck", 7) <= 8) {
+            lvlcheck = 7
+            val editor = prefs.edit()
+            editor.putInt("lvlcheck", lvlcheck)
+            editor.apply()
+        }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level2::class.java)
@@ -35,6 +60,23 @@ class Level7 : AppCompatActivity() {
             this.finish()
         }
 
+    }
+    override fun onPause() {
+        super.onPause()
+
+        // Запоминаем данные
+        val editor = prefs.edit()
+        editor.putInt("lvlcheck", lvlcheck)
+        editor.apply()
+    }
+    override fun onResume() {
+        super.onResume()
+
+        if(prefs.contains("lvlcheck")){
+            // Получаем число из настроек
+            lvlcheck = prefs.getInt("lvlcheck", 7)
+
+        }
     }
     fun go_back(){
         timer?.cancel()
@@ -49,22 +91,22 @@ class Level7 : AppCompatActivity() {
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE
-            button1.visibility = View.VISIBLE
-            button4.visibility = View.VISIBLE
-            button5.visibility = View.VISIBLE
-            button6.visibility = View.VISIBLE
-            button7.visibility = View.VISIBLE
-            button8.visibility = View.VISIBLE
-            button9.visibility = View.VISIBLE
-            button10.visibility = View.VISIBLE
-            button11.visibility = View.VISIBLE
-            button12.visibility = View.VISIBLE
-            button13.visibility = View.VISIBLE
+            num1.visibility = View.VISIBLE
+            redbutton.visibility = View.VISIBLE
+            num2.visibility = View.VISIBLE
+            num3.visibility = View.VISIBLE
+            num4.visibility = View.VISIBLE
+            num5.visibility = View.VISIBLE
+            num6.visibility = View.VISIBLE
+            num7.visibility = View.VISIBLE
+            num8.visibility = View.VISIBLE
+            num9.visibility = View.VISIBLE
+            num0.visibility = View.VISIBLE
             Level12()
         }
     }
     fun Level12() {
-        button4.setOnClickListener{
+        redbutton.setOnClickListener{
             textView.text = check
             val timer = object: CountDownTimer(20000, 1000) {
 
@@ -77,52 +119,52 @@ class Level7 : AppCompatActivity() {
             }
             timer.start()
         }
-        button1.setOnClickListener{
+        num1.setOnClickListener{
             text += "1 "
             textView4.setText(text)
             go_back()
         }
-        button5.setOnClickListener{
+        num2.setOnClickListener{
             text += "2 "
             textView4.setText(text)
             go_back()
         }
-        button6.setOnClickListener{
+        num3.setOnClickListener{
             text += "3 "
             textView4.setText(text)
             go_back()
         }
-        button7.setOnClickListener{
+        num4.setOnClickListener{
             text += "4 "
             textView4.setText(text)
             go_back()
         }
-        button8.setOnClickListener{
+        num5.setOnClickListener{
             text += "5 "
             textView4.setText(text)
             go_back()
         }
-        button9.setOnClickListener{
+        num6.setOnClickListener{
             text += "6 "
             textView4.setText(text)
             go_back()
         }
-        button10.setOnClickListener{
+        num7.setOnClickListener{
             text += "7 "
             textView4.setText(text)
             go_back()
         }
-        button11.setOnClickListener{
+        num8.setOnClickListener{
             text += "8 "
             textView4.setText(text)
             go_back()
         }
-        button12.setOnClickListener{
+        num9.setOnClickListener{
             text += "9 "
             textView4.setText(text)
             go_back()
         }
-        button13.setOnClickListener{
+        num0.setOnClickListener{
             text += "0 "
             textView4.setText(text)
             go_back()

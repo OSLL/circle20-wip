@@ -1,6 +1,8 @@
 package com.megaprojectsuperpuper.thecode
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
@@ -18,10 +20,28 @@ class Level6 : AppCompatActivity() {
     var text = ""
     var check = "1 2 3 4 "
     var name = "6. Не тот угол"
+    var lvlcheck = 6
+    private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
-        textView3.setText(name)
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
+        lvlcheck = prefs.getInt("lvlcheck", 6)
+        lvl_name.setText(name)
+
+
+
+        button.setOnClickListener(){
+            val editor = prefs.edit()
+            editor.putInt("lvlcheck", lvlcheck)
+            editor.apply()
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)}
+
+
+
+
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
             val params =
                 mainbutton.getLayoutParams()
@@ -31,12 +51,35 @@ class Level6 : AppCompatActivity() {
         }
         else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             name = "6. Теперь лучше!"
-            textView3.setText(name)
+            lvl_name.setText(name)
             Level11()
+        }
+    }
+    override fun onPause() {
+        super.onPause()
+
+        // Запоминаем данные
+        val editor = prefs.edit()
+        editor.putInt("lvlcheck", lvlcheck)
+        editor.apply()
+    }
+    override fun onResume() {
+        super.onResume()
+
+        if(prefs.contains("lvlcheck")){
+            // Получаем число из настроек
+            lvlcheck = prefs.getInt("lvlcheck", 6)
+
         }
     }
 
     fun kubok(){
+        if (prefs.getInt("lvlcheck", 6) <= 7) {
+            lvlcheck = 7
+            val editor = prefs.edit()
+            editor.putInt("lvlcheck", lvlcheck)
+            editor.apply()
+        }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level7::class.java)
@@ -52,17 +95,17 @@ class Level6 : AppCompatActivity() {
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE
-            button1.visibility = View.VISIBLE
-            button4.visibility = View.VISIBLE
-            button5.visibility = View.VISIBLE
-            button6.visibility = View.VISIBLE
-            button7.visibility = View.VISIBLE
-            button8.visibility = View.VISIBLE
-            button9.visibility = View.VISIBLE
-            button10.visibility = View.VISIBLE
-            button11.visibility = View.VISIBLE
-            button12.visibility = View.VISIBLE
-            button13.visibility = View.VISIBLE
+            num1.visibility = View.VISIBLE
+            redbutton.visibility = View.VISIBLE
+            num2.visibility = View.VISIBLE
+            num3.visibility = View.VISIBLE
+            num4.visibility = View.VISIBLE
+            num5.visibility = View.VISIBLE
+            num6.visibility = View.VISIBLE
+            num7.visibility = View.VISIBLE
+            num8.visibility = View.VISIBLE
+            num9.visibility = View.VISIBLE
+            num0.visibility = View.VISIBLE
             Level12()
         }
 
@@ -70,76 +113,76 @@ class Level6 : AppCompatActivity() {
     fun Level12() {
             setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
 
-            button4.setOnClickListener {
+            redbutton.setOnClickListener {
                 if (editcheck) {
                     textView.visibility = View.VISIBLE
                     textView.text = check
                 }
             }
-            button1.setOnClickListener {
+            num1.setOnClickListener {
                 if (editcheck) {
                     text += "1 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button5.setOnClickListener {
+            num2.setOnClickListener {
                 if (editcheck) {
                     text += "2 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button6.setOnClickListener {
+            num3.setOnClickListener {
                 if (editcheck) {
                     text += "3 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button7.setOnClickListener {
+            num4.setOnClickListener {
                 if (editcheck) {
                     text += "4 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button8.setOnClickListener {
+            num5.setOnClickListener {
                 if (editcheck) {
                     text += "5 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button9.setOnClickListener {
+            num6.setOnClickListener {
                 if (editcheck) {
                     text += "6 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button10.setOnClickListener {
+            num7.setOnClickListener {
                 if (editcheck) {
                     text += "7 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button11.setOnClickListener {
+            num8.setOnClickListener {
                 if (editcheck) {
                     text += "8 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button12.setOnClickListener {
+            num9.setOnClickListener {
                 if (editcheck) {
                     text += "9 "
                     textView4.setText(text)
                     bool()
                 }
             }
-            button13.setOnClickListener {
+            num0.setOnClickListener {
                 if (editcheck) {
                     text += "0 "
                     textView4.setText(text)
