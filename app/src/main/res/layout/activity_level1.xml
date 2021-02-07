@@ -7,6 +7,17 @@
     tools:context=".Level1">
 
     <RadioGroup
+        android:id="@+id/lvl8button"
+        android:layout_width="125dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
         android:id="@+id/num4"
         android:layout_width="20dp"
         android:layout_height="20dp"

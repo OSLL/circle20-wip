@@ -6,30 +6,28 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
+import kotlin.concurrent.schedule
 
-class Level7 : AppCompatActivity() {
+class Level10 : AppCompatActivity() {
     var i = 0
-    var second = 1
-    var timer: Timer? = null
+    var editcheck = true
     var text = ""
-    var check = "1 2 3 4 "
-    var name = "7. Вовремя остановись"
-    var lvlcheck = 7
+    var check = "6 6 6 6 "
+    var name = "10. Возвращение к истокам"
+
     private lateinit var prefs: SharedPreferences
+    var lvlcheck = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 7)
+        lvlcheck = prefs.getInt("lvlcheck", 10)
         lvl_name.setText(name)
-        timer = Timer()
 
 
 
@@ -43,31 +41,23 @@ class Level7 : AppCompatActivity() {
 
 
 
-
         Level11()
     }
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 7) <= 8) {
-            lvlcheck = 8
+        if (prefs.getInt("lvlcheck", 10) <= 11) {
+            lvlcheck = 11
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level8::class.java)
+            val intent = Intent(this, Level4::class.java)
             startActivity(intent)
             this.finish()
         }
-
     }
 
-    fun go_back(){
-        timer?.cancel()
-        val intent = Intent(this, Level7::class.java)
-        startActivity(intent)
-        this.finish()
-    }
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
@@ -90,68 +80,75 @@ class Level7 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        redbutton.setOnClickListener{
-            textView.text = check
-            val timer = object: CountDownTimer(8000, 1000) {
-
-                override fun onFinish() {
-                    kubok()
-                }
-
-                override fun onTick(millisUntilFinished: Long) {
-                }
-            }
-            timer.start()
-        }
         num1.setOnClickListener{
-            text += "1 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "1 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num2.setOnClickListener{
-            text += "2 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "2 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num3.setOnClickListener{
-            text += "3 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "3 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num4.setOnClickListener{
-            text += "4 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "4 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num5.setOnClickListener{
-            text += "5 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "5 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num6.setOnClickListener{
-            text += "6 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "6 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num7.setOnClickListener{
-            text += "7 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "7 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num8.setOnClickListener{
-            text += "8 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "8 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num9.setOnClickListener{
-            text += "9 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "9 "
+                textView4.setText(text)
+                bool()
+            }
         }
         num0.setOnClickListener{
-            text += "0 "
-            textView4.setText(text)
-            go_back()
+            if (editcheck) {
+                text += "0 "
+                textView4.setText(text)
+                bool()
+            }
         }
 
     }
@@ -159,12 +156,21 @@ class Level7 : AppCompatActivity() {
         i++
         if (i == 4){
             if(text.equals(check)){
-                return
+                kubok()
             }
-            else {
+            else{
                 text = ""
                 i = 0
+                editcheck = false
+                textView.visibility = View.INVISIBLE
+                error.visibility = View.VISIBLE
+                Timer("settingUp", false).schedule(1500) {
+                    textView4.setText(text)
+                    editcheck = true
+                    error.visibility = View.INVISIBLE
+                    //textView.visibility = View.VISIBLE
                 }
             }
         }
     }
+}

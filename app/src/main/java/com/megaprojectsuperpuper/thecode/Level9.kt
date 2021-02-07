@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -14,18 +15,18 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 
-class Level1 : AppCompatActivity() {
+class Level9 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
-    var name = "1.Пока все просто"
-    var lvlcheck = 1
+    var name = "9.Полетаем?"
+    var lvlcheck = 9
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 1)
+        lvlcheck = prefs.getInt("lvlcheck", 9)
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
@@ -45,18 +46,24 @@ class Level1 : AppCompatActivity() {
 
         Level11()
     }
+    private fun isAirplaneModeOn(context: Context): Boolean {
+        return Settings.System.getInt(
+            context.contentResolver,
+            Settings.Global.AIRPLANE_MODE_ON, 0
+        ) !== 0
+    }
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 1) <= 2) {
-            lvlcheck = 2
+        if (prefs.getInt("lvlcheck", 9) <= 10) {
+            lvlcheck = 10
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level2::class.java)
+            val intent = Intent(this, Level10::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -64,31 +71,33 @@ class Level1 : AppCompatActivity() {
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
-            mainbutton.visibility = View.INVISIBLE
-            textView.visibility = View.VISIBLE
-            textView4.visibility = View.VISIBLE
-            imageView.visibility = View.VISIBLE
-            num1.visibility = View.VISIBLE
-            redbutton.visibility = View.VISIBLE
-            num2.visibility = View.VISIBLE
-            num3.visibility = View.VISIBLE
-            num4.visibility = View.VISIBLE
-            num5.visibility = View.VISIBLE
-            num6.visibility = View.VISIBLE
-            num7.visibility = View.VISIBLE
-            num8.visibility = View.VISIBLE
-            num9.visibility = View.VISIBLE
-            num0.visibility = View.VISIBLE
-            Level12()
+            if (isAirplaneModeOn(this)){
+                mainbutton.visibility = View.INVISIBLE
+                textView.visibility = View.VISIBLE
+                textView4.visibility = View.VISIBLE
+                imageView.visibility = View.VISIBLE
+                num1.visibility = View.VISIBLE
+                redbutton.visibility = View.VISIBLE
+                num2.visibility = View.VISIBLE
+                num3.visibility = View.VISIBLE
+                num4.visibility = View.VISIBLE
+                num5.visibility = View.VISIBLE
+                num6.visibility = View.VISIBLE
+                num7.visibility = View.VISIBLE
+                num8.visibility = View.VISIBLE
+                num9.visibility = View.VISIBLE
+                num0.visibility = View.VISIBLE
+                Level12()
+
+            }
+            else{
+                val intent = Intent(this, Level9::class.java)
+                startActivity(intent)
+
+            }
         }
     }
     fun Level12() {
-        lvl8button.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = "6 6 6 6 "
-            }
-        }
         redbutton.setOnClickListener{
             if (editcheck) {
                 textView.visibility = View.VISIBLE
@@ -97,9 +106,9 @@ class Level1 : AppCompatActivity() {
         }
         num1.setOnClickListener{
             if (editcheck){
-            text += "1 "
-            textView4.setText(text)
-            bool()
+                text += "1 "
+                textView4.setText(text)
+                bool()
             }
         }
         num2.setOnClickListener{
@@ -182,11 +191,9 @@ class Level1 : AppCompatActivity() {
                     textView4.setText(text)
                     editcheck = true
                     error.visibility = View.INVISIBLE
-                    //Log.d("pupok", "gjrj")
-                    //textView.visibility = View.VISIBLE
+
                 }
-                //Log.d("pupok","kok")
-                //if (i == 0) textView.visibility = View.VISIBLE
+
 
             }
         }
