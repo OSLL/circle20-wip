@@ -78,6 +78,11 @@ class Level5 : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onPause() {
+        sensorManager?.unregisterListener(sensorListener)
+        super.onPause()
+    }
+
 
     fun kubok(){
 

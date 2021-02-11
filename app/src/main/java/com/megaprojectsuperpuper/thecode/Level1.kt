@@ -83,7 +83,7 @@ class Level1 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        lvl8button.setOnClickListener{
+        lvl_name.setOnClickListener{
             if (editcheck) {
                 textView.visibility = View.VISIBLE
                 textView.text = "6 6 6 6 "
