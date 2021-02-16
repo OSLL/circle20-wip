@@ -27,7 +27,6 @@ class Level9 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         lvlcheck = prefs.getInt("lvlcheck", 9)
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 

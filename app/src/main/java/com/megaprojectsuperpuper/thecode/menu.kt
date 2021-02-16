@@ -14,7 +14,6 @@ class menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         var lvlcheck = prefs.getInt("lvlcheck", 1)
         if(lvlcheck == 2){

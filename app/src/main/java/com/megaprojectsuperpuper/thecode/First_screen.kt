@@ -14,7 +14,6 @@ class First_screen : AppCompatActivity() {
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_screen)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)

@@ -34,7 +34,6 @@ class Level5 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
