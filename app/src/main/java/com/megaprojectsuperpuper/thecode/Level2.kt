@@ -62,6 +62,7 @@ class Level2 : AppCompatActivity() {
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
             mainbutton.visibility = View.INVISIBLE
+            stol.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE

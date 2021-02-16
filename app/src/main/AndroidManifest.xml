@@ -18,7 +18,7 @@
         <activity android:name=".Level5" />
         <activity android:name=".menu" />
         <activity android:name=".Level7" />
-        <activity android:name=".Level6" />
+        <activity android:name=".Level6"/>
         <activity android:name=".Level4" />
         <activity android:name=".Level3" />
         <activity android:name=".Level2" />
@@ -29,6 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

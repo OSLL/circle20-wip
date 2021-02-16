@@ -44,6 +44,7 @@ class Level4 : AppCompatActivity() {
 
         mainbutton.setOnClickListener {
             mainbutton.visibility = View.INVISIBLE
+            stol.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
             textView4.visibility = View.VISIBLE
             imageView.visibility = View.VISIBLE

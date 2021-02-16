@@ -73,6 +73,7 @@ class Level9 : AppCompatActivity() {
             //запуска второй активити в вводом кода
             if (isAirplaneModeOn(this)){
                 mainbutton.visibility = View.INVISIBLE
+                stol.visibility = View.INVISIBLE
                 textView.visibility = View.VISIBLE
                 textView4.visibility = View.VISIBLE
                 imageView.visibility = View.VISIBLE
