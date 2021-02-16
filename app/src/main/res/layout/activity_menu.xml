@@ -79,9 +79,9 @@
         android:id="@+id/lvl4"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="314dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="599dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
@@ -171,9 +171,9 @@
         android:id="@+id/lvl8"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="314dp"
         android:layout_marginTop="168dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="503dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
@@ -187,10 +187,8 @@
         app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lvl9"
@@ -260,18 +258,16 @@
         app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lvl12"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="316dp"
+        android:layout_marginStart="314dp"
         android:layout_marginTop="264dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="407dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
@@ -286,10 +282,8 @@
         app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/block9"
@@ -337,9 +331,9 @@
         android:id="@+id/block12"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="314dp"
         android:layout_marginTop="264dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="407dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -408,14 +402,16 @@
         android:id="@+id/block8"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="314dp"
         android:layout_marginTop="168dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="503dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/zamok" />
 
     <ImageView

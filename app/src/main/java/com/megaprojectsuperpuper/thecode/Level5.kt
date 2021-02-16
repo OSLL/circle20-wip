@@ -65,7 +65,7 @@ class Level5 : AppCompatActivity() {
             currentAcceleration = sqrt((x * x + y * y + z * z).toDouble()).toFloat()
             val delta = currentAcceleration - lastAcceleration
             acceleration = acceleration * 0.9f + delta
-            if (acceleration > 30) {
+            if (acceleration > 25) {
                 //Toast.makeText(applicationContext, "Shake event detected", Toast.LENGTH_SHORT).show()
                 Level12()
             }

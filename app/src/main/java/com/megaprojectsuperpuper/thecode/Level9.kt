@@ -47,10 +47,7 @@ class Level9 : AppCompatActivity() {
         Level11()
     }
     private fun isAirplaneModeOn(context: Context): Boolean {
-        return Settings.System.getInt(
-            context.contentResolver,
-            Settings.Global.AIRPLANE_MODE_ON, 0
-        ) !== 0
+        return Settings.System.getInt(context.contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0) !== 0
     }
 
 
@@ -94,7 +91,7 @@ class Level9 : AppCompatActivity() {
             else{
                 val intent = Intent(this, Level9::class.java)
                 startActivity(intent)
-
+                this.finish()
             }
         }
     }
