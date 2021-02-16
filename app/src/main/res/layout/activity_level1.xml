@@ -24,18 +24,16 @@
         android:id="@+id/imageView"
         android:layout_width="415dp"
         android:layout_height="620dp"
-        android:layout_marginStart="13dp"
         android:layout_marginTop="49dp"
         android:layout_marginBottom="72dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/photo5260363687036826006"
         tools:srcCompat="@drawable/photo5260363687036826006"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView"
@@ -245,18 +243,6 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="323dp"
-        android:text="menu"
-        app:layout_constraintBottom_toTopOf="@+id/redbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/stol"
         android:layout_width="wrap_content"
@@ -264,7 +250,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/stol_" />
+        app:srcCompat="@drawable/stol_"
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/mainbutton"
@@ -278,6 +265,23 @@
         app:layout_constraintEnd_toEndOf="@+id/stol"
         app:layout_constraintStart_toStartOf="@+id/stol"
         app:layout_constraintTop_toTopOf="@+id/stol"
-        app:srcCompat="?attr/selectableItemBackgroundBorderless" />
+        app:srcCompat="?attr/selectableItemBackgroundBorderless"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/menubutton"
+        android:layout_width="95dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="342dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="659dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pause" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

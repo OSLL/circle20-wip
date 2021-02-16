@@ -32,7 +32,7 @@ class Level8 : AppCompatActivity() {
 
 
 
-        button.setOnClickListener(){
+        menubutton.setOnClickListener(){
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
