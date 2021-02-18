@@ -11,36 +11,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
-
-        <activity android:name=".Level10"
+        <activity android:name=".Level11"
             android:screenOrientation="sensorPortrait"></activity>
-        <activity android:name=".Level9"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level8"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level5"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".menu"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level7"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level6"/>
-        <activity android:name=".Level4"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level3"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level2"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Level1"
-            android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".First_screen"
+        <activity
+            android:name=".Level10"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level9"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level8"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level5"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".menu"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level7"
+            android:screenOrientation="sensorPortrait" />
+        <activity android:name=".Level6" />
+        <activity
+            android:name=".Level4"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level3"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level2"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level1"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".First_screen"
             android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
