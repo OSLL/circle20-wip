@@ -11,21 +11,23 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlin.math.round
 
 class Level3 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
-    var check = "1 2 3 4 "
-    var name = "3. ..--- ----. --... ....."
-
+    var check = ""
+    var name = "3. "
+    var lvlcheck = 4
     private lateinit var prefs: SharedPreferences
-    var lvlcheck = 3
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_level1)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 3)
+        lvlcheck = prefs.getInt("lvlcheck", 4)
         lvl_name.setText(name)
 
 
@@ -36,19 +38,26 @@ class Level3 : AppCompatActivity() {
             editor.apply()
             val intent = Intent(this, menu::class.java)
             startActivity(intent)}
-
-
-
-
+        for (i in 1..4){
+            var a = Math.random()
+            while (round(a*10).toInt() ==10)
+            {
+                a = Math.random()
+            }
+            if (round(a*10).toInt() != 10) {
+                check += round(a*10).toInt()
+                check += " "
+            }
+        }
+        lvl_name.setText(check)
         Level11()
     }
+    fun toMorz(a : Int) : String{
+        var ans = ""
+        var c = ans.toCharArray()
+        return ans
+    }
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 3) <= 4) {
-            lvlcheck = 4
-            val editor = prefs.edit()
-            editor.putInt("lvlcheck", lvlcheck)
-            editor.apply()
-        }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level4::class.java)
@@ -56,7 +65,6 @@ class Level3 : AppCompatActivity() {
             this.finish()
         }
     }
-
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
@@ -161,7 +169,7 @@ class Level3 : AppCompatActivity() {
     fun bool(): Unit{
         i++
         if (i == 4){
-            if(text.equals(check)){
+            if(text.equals("1 2 3 4 ")){
                 kubok()
             }
             else{
