@@ -22,61 +22,78 @@ class First_screen : AppCompatActivity() {
             if (lvlcheck == 1){
                 val intent = Intent(this, Level1::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 2){
                 val intent = Intent(this, Level2::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 3){
                 val intent = Intent(this, Level3::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 4){
                 val intent = Intent(this, Level4::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 5){
                 val intent = Intent(this, Level5::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 6){
                 val intent = Intent(this, Level6::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 7){
             val intent = Intent(this, Level7::class.java)
             startActivity(intent)
+                this.finish()
             }
             if (lvlcheck == 8){
                 val intent = Intent(this, Level8::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 9){
                 val intent = Intent(this, Level9::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 10){
                 val intent = Intent(this, Level10::class.java)
                 startActivity(intent)
+                this.finish()
 
             }
             if (lvlcheck == 11){
-                val intent = Intent(this, Level10::class.java)
+                val intent = Intent(this, Level11::class.java)
                 startActivity(intent)
+                this.finish()
 
+            }
+            if (lvlcheck == 12) {
+                val intent = Intent(this, Level12::class.java)
+                startActivity(intent)
+                this.finish()
             }
             }
         list_of_levels.setOnClickListener(){
             val intent = Intent(this, menu::class.java)
             startActivity(intent)
+            this.finish()
 
         }
         }

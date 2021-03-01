@@ -260,6 +260,11 @@ class menu : AppCompatActivity() {
             startActivity(intent)
             this.finish()
         }
+        lvl12.setOnClickListener(){
+            val intent = Intent(this, Level12::class.java)
+            startActivity(intent)
+            this.finish()
+        }
 
 
     }

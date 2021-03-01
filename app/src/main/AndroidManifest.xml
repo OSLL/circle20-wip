@@ -3,6 +3,9 @@
     package="com.megaprojectsuperpuper.thecode">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera"/>
 
     <application
         android:allowBackup="true"
@@ -11,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
-        <activity android:name=".Level11"
-            android:screenOrientation="sensorPortrait"></activity>
+        <activity android:name=".Level12"></activity>
+        <activity
+            android:name=".Level11"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".Level10"
             android:screenOrientation="sensorPortrait" />

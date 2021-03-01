@@ -21,7 +21,7 @@ class Level11 : AppCompatActivity() {
     var editcheck = true
     var text = ""
     var check = "1 2 3 4 "
-    var name = "Нужно больше энергии"
+    var name = "11. Нужно больше энергии"
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
