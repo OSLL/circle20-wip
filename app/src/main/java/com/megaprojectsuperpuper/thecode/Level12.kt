@@ -43,7 +43,9 @@ class Level12 : AppCompatActivity() {
                 super.onTorchModeChanged(cameraId, enabled)
 
             }
+
         }
+
 
         val manager = baseContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         manager.registerTorchCallback(torchCallback, null)

@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -45,16 +46,34 @@ class Level3 : AppCompatActivity() {
                 a = Math.random()
             }
             if (round(a*10).toInt() != 10) {
-                check += round(a*10).toInt()
+                check += (round(a*10).toInt())
                 check += " "
+                name += toMorz(round(a*10).toInt())
+                name += " "
+                Log.d("pupok","$a" )
             }
         }
-        lvl_name.setText(check)
+        lvl_name.setText(name)
         Level11()
     }
     fun toMorz(a : Int) : String{
         var ans = ""
-        var c = ans.toCharArray()
+        if (a <= 5) {
+            for (i in 1..a)
+                ans += "•"
+            for (i in 1..5-a)
+                ans += "–"
+        }
+        if (a > 5) {
+            for (i in 1..a-5)
+                ans += "–"
+            for (i in 1..10-a)
+                ans += "•"
+        }
+
+
+
+
         return ans
     }
     fun kubok(){
@@ -88,12 +107,12 @@ class Level3 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        //button4.setOnClickListener{
-        //    if (editcheck) {
-        //        textView.visibility = View.VISIBLE
-        //        textView.text = check
-        //    }
-        //}
+   //     redbutton.setOnClickListener{
+   //         if (editcheck) {
+   //             textView.visibility = View.VISIBLE
+   //             textView.text = check
+   //         }
+   //     }
         num1.setOnClickListener{
             if (editcheck) {
                 text += "1 "
@@ -169,7 +188,7 @@ class Level3 : AppCompatActivity() {
     fun bool(): Unit{
         i++
         if (i == 4){
-            if(text.equals("1 2 3 4 ")){
+            if(text.equals(check)){
                 kubok()
             }
             else{
