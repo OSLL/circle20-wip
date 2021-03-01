@@ -17,7 +17,7 @@ class Level10 : AppCompatActivity() {
     var editcheck = true
     var text = ""
     var check = "6 6 6 6 "
-    var name = "10. Возвращение к истокам"
+    var name = "10. Вечное возвращение"
 
     private lateinit var prefs: SharedPreferences
     var lvlcheck = 10

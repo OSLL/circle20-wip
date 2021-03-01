@@ -16,13 +16,14 @@ import kotlinx.android.synthetic.main.activity_mainf.*
 import java.lang.Math.sqrt
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlin.math.round
 
 
 class Level5 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
-    var check = "1 2 3 4 "
+    var check = ""
     var name = "5.Ты тряси-тряси смартфон"
 
     private var sensorManager: SensorManager? = null
@@ -39,6 +40,17 @@ class Level5 : AppCompatActivity() {
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         lvlcheck = prefs.getInt("lvlcheck", 5)
 
+        for (i in 1..4){
+            var a = Math.random()
+            while (round(a*10).toInt() ==10)
+            {
+                a = Math.random()
+            }
+            if (round(a*10).toInt() != 10) {
+                check += (round(a*10).toInt())
+                check += " "
+            }
+        }
         menubutton.setOnClickListener(){
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
@@ -133,6 +145,13 @@ class Level5 : AppCompatActivity() {
         num1.setOnClickListener{
             if (editcheck){
                 text += "1 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num8.setOnClickListener{
+            if (editcheck){
+                text += "8 "
                 textView4.setText(text)
                 bool()
             }

@@ -32,6 +32,8 @@ class Level7 : AppCompatActivity() {
 
 
 
+
+
         menubutton.setOnClickListener(){
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)

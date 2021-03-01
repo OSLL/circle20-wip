@@ -50,7 +50,6 @@ class Level3 : AppCompatActivity() {
                 check += " "
                 name += toMorz(round(a*10).toInt())
                 name += " "
-                Log.d("pupok","$a" )
             }
         }
         lvl_name.setText(name)
@@ -77,6 +76,12 @@ class Level3 : AppCompatActivity() {
         return ans
     }
     fun kubok(){
+        if (prefs.getInt("lvlcheck", 3) <= 4) {
+            lvlcheck = 4
+            val editor = prefs.edit()
+            editor.putInt("lvlcheck", lvlcheck)
+            editor.apply()
+        }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
             val intent = Intent(this, Level4::class.java)

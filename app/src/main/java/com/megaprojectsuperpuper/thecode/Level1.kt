@@ -12,13 +12,14 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlin.math.round
 
 
 class Level1 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
-    var check = "1 2 3 4 "
+    var check = ""
     var name = "1.Пока все просто"
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
@@ -28,6 +29,18 @@ class Level1 : AppCompatActivity() {
         lvlcheck = prefs.getInt("lvlcheck", 1)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
+
+        for (i in 1..4){
+            var a = Math.random()
+            while (round(a*10).toInt() ==10)
+            {
+                a = Math.random()
+            }
+            if (round(a*10).toInt() != 10) {
+                check += (round(a*10).toInt())
+                check += " "
+            }
+        }
 
 
 
