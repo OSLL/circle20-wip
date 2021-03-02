@@ -198,13 +198,7 @@ class Level5 : AppCompatActivity() {
                 bool()
             }
         }
-        num6.setOnClickListener{
-            if (editcheck) {
-                text += "8 "
-                textView4.setText(text)
-                bool()
-            }
-        }
+
         num9.setOnClickListener{
             if (editcheck) {
                 text += "9 "
