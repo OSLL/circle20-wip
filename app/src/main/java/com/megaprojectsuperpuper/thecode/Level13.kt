@@ -1,15 +1,15 @@
 package com.megaprojectsuperpuper.thecode
 
 
-import android.R.attr.button
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.SharedPreferences
-import android.os.BatteryManager
-import android.os.Bundle
-import android.view.View
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -17,18 +17,19 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level11 : AppCompatActivity() {
+class Level13 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "11. Нужно больше энергии"
+    var name = "13. Все сразу"
     var lvlcheck = 1
+    var flag = false
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 11)
+        lvlcheck = prefs.getInt("lvlcheck", 13)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 
@@ -43,6 +44,9 @@ class Level11 : AppCompatActivity() {
                 check += " "
             }
         }
+
+
+
         menubutton.setOnClickListener(){
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
@@ -56,34 +60,18 @@ class Level11 : AppCompatActivity() {
 
         Level11()
     }
-    fun isPhonePluggedIn(context: Context): Boolean {
-        var charging = false
-        val batteryIntent = context.registerReceiver(
-            null,
-            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-        )
-        val status = batteryIntent!!.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
-        val batteryCharge = status == BatteryManager.BATTERY_STATUS_CHARGING
-        val chargePlug = batteryIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
-        val usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB
-        val acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC
-        if (batteryCharge) charging = true
-        if (usbCharge) charging = true
-        if (acCharge) charging = true
-        return charging
-    }
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 11) <= 12) {
-            lvlcheck = 12
+        if (prefs.getInt("lvlcheck", 13) <= 14) {
+            lvlcheck = 14
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level12::class.java)
+            val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -91,11 +79,6 @@ class Level11 : AppCompatActivity() {
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
-            textView.alpha = 0.2f
-            textView4.alpha = 0.2f
-            imageView.alpha = 0.2f
-
-
             mainbutton.visibility = View.INVISIBLE
             stol.visibility = View.INVISIBLE
             textView.visibility = View.VISIBLE
@@ -116,28 +99,21 @@ class Level11 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        redbutton.isClickable = false
-        num1.isClickable = false
-        num2.isClickable = false
-        num3.isClickable = false
-        num4.isClickable = false
-        num5.isClickable = false
-        num6.isClickable = false
-        num7.isClickable = false
-        num8.isClickable = false
-        num9.isClickable = false
-        num0.isClickable = false
-        redbutton.setOnClickListener {
-            if (isPhonePluggedIn(this)) {
-                textView.alpha = 1f
-                textView4.alpha = 1f
-                imageView.alpha = 1f
-                redbutton.setOnClickListener {
-                    if (editcheck) {
-                        textView.visibility = View.VISIBLE
-                        textView.text = check
-                    }
+        redbutton.setOnTouchListener {v, event ->
+            if (event.action == KeyEvent.ACTION_DOWN)
+            {
+                if (editcheck) {
+                    textView.visibility = View.VISIBLE
+                    textView.text = check
                 }
+                flag = true
+
+            }
+            else if (event.action == KeyEvent.ACTION_UP)
+            {
+                flag = false
+            }
+            if(flag) {
                 num1.setOnClickListener {
                     if (editcheck) {
                         text += "1 "
@@ -209,7 +185,22 @@ class Level11 : AppCompatActivity() {
                     }
                 }
             }
+            else {
+                num1.isClickable = false
+                num2.isClickable = false
+                num3.isClickable = false
+                num4.isClickable = false
+                num5.isClickable = false
+                num6.isClickable = false
+                num7.isClickable = false
+                num8.isClickable = false
+                num9.isClickable = false
+                num0.isClickable = false}
+            return@setOnTouchListener true
+
+
         }
+
     }
     fun bool(): Unit{
         i++

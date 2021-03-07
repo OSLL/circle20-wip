@@ -193,8 +193,38 @@ class menu : AppCompatActivity() {
             lvl11.visibility = View.VISIBLE
             block12.visibility = View.INVISIBLE
             lvl12.visibility = View.VISIBLE
+            block13.visibility = View.INVISIBLE
+            lvl13.visibility = View.VISIBLE
+
+        }
+        if(lvlcheck == 14){
+            block2.visibility = View.INVISIBLE
+            lvl2.visibility = View.VISIBLE
+            block3.visibility = View.INVISIBLE
+            lvl3.visibility = View.VISIBLE
+            block4.visibility = View.INVISIBLE
+            lvl4.visibility = View.VISIBLE
+            block5.visibility = View.INVISIBLE
+            lvl5.visibility = View.VISIBLE
+            block6.visibility = View.INVISIBLE
+            lvl6.visibility = View.VISIBLE
+            block7.visibility = View.INVISIBLE
+            lvl7.visibility = View.VISIBLE
+            block8.visibility = View.INVISIBLE
+            lvl8.visibility = View.VISIBLE
+            block9.visibility = View.INVISIBLE
+            lvl9.visibility = View.VISIBLE
+            block10.visibility = View.INVISIBLE
+            lvl10.visibility = View.VISIBLE
+            block11.visibility = View.INVISIBLE
+            lvl11.visibility = View.VISIBLE
             block12.visibility = View.INVISIBLE
             lvl12.visibility = View.VISIBLE
+            block13.visibility = View.INVISIBLE
+            lvl13.visibility = View.VISIBLE
+            block14.visibility = View.INVISIBLE
+            lvl14.visibility = View.VISIBLE
+
         }
 
 
@@ -262,6 +292,11 @@ class menu : AppCompatActivity() {
         }
         lvl12.setOnClickListener(){
             val intent = Intent(this, Level12::class.java)
+            startActivity(intent)
+            this.finish()
+        }
+        lvl13.setOnClickListener(){
+            val intent = Intent(this, Level13::class.java)
             startActivity(intent)
             this.finish()
         }

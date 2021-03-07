@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.hardware.camera2.CameraManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -31,25 +32,14 @@ class Level12 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
 //      TODO: skip level if no flashlight
         Log.d(
                 "FLASH_CHECK",
                 "Flash: ${baseContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)}"
         )
 
-        val torchCallback: CameraManager.TorchCallback = @RequiresApi(Build.VERSION_CODES.M)
-        object : CameraManager.TorchCallback() {
-            override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
-                Log.d("FLASH_CHECK", "status: $enabled")
-                super.onTorchModeChanged(cameraId, enabled)
 
-            }
-
-        }
-
-
-        val manager = baseContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-        manager.registerTorchCallback(torchCallback, null)
 
 
 
@@ -95,11 +85,12 @@ class Level12 : AppCompatActivity() {
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level1::class.java)
+            val intent = Intent(this, Level13::class.java)
             startActivity(intent)
             this.finish()
         }
     }
+    @RequiresApi(Build.VERSION_CODES.M)
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
@@ -123,7 +114,23 @@ class Level12 : AppCompatActivity() {
 
         }
     }
+    @RequiresApi(Build.VERSION_CODES.M)
     fun Level12() {
+        val torchCallback: CameraManager.TorchCallback = @RequiresApi(Build.VERSION_CODES.M)
+        object : CameraManager.TorchCallback() {
+            override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
+                Log.d("FLASH_CHECK", "status: $enabled")
+                if (enabled){
+                    imageView.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY)
+                }
+
+                super.onTorchModeChanged(cameraId, enabled)
+
+            }
+
+        }
+        val manager = baseContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        manager.registerTorchCallback(torchCallback, null)
 
         redbutton.setOnClickListener{
             if (editcheck) {
