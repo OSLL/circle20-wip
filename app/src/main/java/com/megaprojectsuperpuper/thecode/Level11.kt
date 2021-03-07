@@ -1,7 +1,6 @@
 package com.megaprojectsuperpuper.thecode
 
 
-import android.R.attr.button
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
@@ -24,6 +23,7 @@ class Level11 : AppCompatActivity() {
     var check = ""
     var name = "11. Нужно больше энергии"
     var lvlcheck = 1
+    var light = 0.4f
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +43,59 @@ class Level11 : AppCompatActivity() {
                 check += " "
             }
         }
-        menubutton.setOnClickListener(){
-            val editor = prefs.edit()
-            editor.putInt("lvlcheck", lvlcheck)
-            editor.apply()
-            val intent = Intent(this, menu::class.java)
-            startActivity(intent)
+
+        pausebutton.setOnClickListener(){
+            pausebutton.visibility = View.INVISIBLE
+            resumebutton.visibility = View.VISIBLE
+            menubutton.visibility = View.VISIBLE
+            soundbutton.visibility = View.VISIBLE
+            redbutton.isClickable = false
+            num1.isClickable = false
+            num2.isClickable = false
+            num3.isClickable = false
+            num4.isClickable = false
+            num5.isClickable = false
+            num6.isClickable = false
+            num7.isClickable = false
+            num8.isClickable = false
+            num9.isClickable = false
+            num0.isClickable = false
+            mainbutton.isClickable = false
+            stol.isClickable = false
+
+            textView.alpha = (light - 0.2f)
+            textView4.alpha = (light - 0.2f)
+            imageView.alpha = (light - 0.2f)
+            stol.alpha = 0.8f
+            menubutton.setOnClickListener(){
+                val intent = Intent(this, menu::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            resumebutton.setOnClickListener(){
+                pausebutton.visibility = View.VISIBLE
+                resumebutton.visibility = View.INVISIBLE
+                menubutton.visibility = View.INVISIBLE
+                soundbutton.visibility = View.INVISIBLE
+                redbutton.isClickable = true
+                num1.isClickable = true
+                num2.isClickable = true
+                num3.isClickable = true
+                num4.isClickable = true
+                num5.isClickable = true
+                num6.isClickable = true
+                num7.isClickable = true
+                num8.isClickable = true
+                num9.isClickable = true
+                num0.isClickable = true
+                mainbutton.isClickable = true
+                stol.isClickable = true
+                textView.alpha = light
+                textView4.alpha = light
+                imageView.alpha = light
+                stol.alpha = 1f
+            }
+
         }
 
 
@@ -91,9 +138,9 @@ class Level11 : AppCompatActivity() {
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
-            textView.alpha = 0.2f
-            textView4.alpha = 0.2f
-            imageView.alpha = 0.2f
+            textView.alpha = (light +0.1f)
+            textView4.alpha = (light + 0.1f)
+            imageView.alpha = (light+0.1f)
 
 
             mainbutton.visibility = View.INVISIBLE
@@ -129,9 +176,10 @@ class Level11 : AppCompatActivity() {
         num0.isClickable = false
         redbutton.setOnClickListener {
             if (isPhonePluggedIn(this)) {
-                textView.alpha = 1f
-                textView4.alpha = 1f
-                imageView.alpha = 1f
+                light = 1f
+                textView.alpha = light
+                textView4.alpha = light
+                imageView.alpha = light
                 redbutton.setOnClickListener {
                     if (editcheck) {
                         textView.visibility = View.VISIBLE

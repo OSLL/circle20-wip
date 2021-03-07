@@ -273,7 +273,7 @@
         tools:visibility="gone" />
 
     <ImageView
-        android:id="@+id/menubutton"
+        android:id="@+id/pausebutton"
         android:layout_width="89dp"
         android:layout_height="78dp"
         android:layout_marginStart="342dp"
@@ -287,5 +287,51 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/pause" />
+
+    <ImageView
+        android:id="@+id/resumebutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="287dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_0734"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/menubutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menupin"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/soundbutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/soundpin"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

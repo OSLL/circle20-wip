@@ -81,8 +81,10 @@
         android:id="@+id/lvl15"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="221dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="311dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
         android:text="15"
@@ -95,15 +97,19 @@
         android:textSize="14sp"
         android:visibility="invisible"
         app:iconTint="#FF0000"
-        app:layout_constraintStart_toEndOf="@+id/lvl14"
-        app:layout_constraintTop_toBottomOf="@+id/lvl11" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lvl16"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="314dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="311dp"
         android:background="#FF0000"
         android:backgroundTint="#AFACAC"
         android:text="16"
@@ -116,8 +122,10 @@
         android:textSize="14sp"
         android:visibility="invisible"
         app:iconTint="#FF0000"
-        app:layout_constraintStart_toEndOf="@+id/lvl15"
-        app:layout_constraintTop_toBottomOf="@+id/lvl12" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lvl2"
@@ -463,20 +471,26 @@
         android:id="@+id/block15"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="39dp"
-        app:layout_constraintStart_toEndOf="@+id/lvl14"
-        app:layout_constraintTop_toBottomOf="@+id/lvl11"
+        android:layout_marginStart="221dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="311dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/zamok" />
 
     <ImageView
         android:id="@+id/block16"
         android:layout_width="48dp"
         android:layout_height="60dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="39dp"
-        app:layout_constraintStart_toEndOf="@+id/lvl15"
-        app:layout_constraintTop_toBottomOf="@+id/lvl12"
+        android:layout_marginStart="314dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="49dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/zamok" />
 
     <ImageView
