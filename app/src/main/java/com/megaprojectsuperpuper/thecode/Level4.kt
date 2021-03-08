@@ -45,6 +45,7 @@ class Level4 : AppCompatActivity() {
             resumebutton.visibility = View.VISIBLE
             menubutton.visibility = View.VISIBLE
             soundbutton.visibility = View.VISIBLE
+            soundoffbutton.visibility = View.VISIBLE
             redbutton.isClickable = false
             num1.isClickable = false
             num2.isClickable = false
@@ -68,11 +69,20 @@ class Level4 : AppCompatActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            soundbutton.setOnClickListener(){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+            }
+            soundoffbutton.setOnClickListener(){
+                soundbutton.visibility = View.VISIBLE
+                soundoffbutton.visibility = View.INVISIBLE
+            }
             resumebutton.setOnClickListener(){
                 pausebutton.visibility = View.VISIBLE
                 resumebutton.visibility = View.INVISIBLE
                 menubutton.visibility = View.INVISIBLE
                 soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.INVISIBLE
                 redbutton.isClickable = true
                 num1.isClickable = true
                 num2.isClickable = true
