@@ -21,6 +21,7 @@ class Level1 : AppCompatActivity() {
     var check = ""
     var name = "1.Пока все просто"
     var lvlcheck = 1
+    var sound_check = 0
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,10 +76,12 @@ class Level1 : AppCompatActivity() {
             soundbutton.setOnClickListener(){
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                sound_check = 0
             }
             soundoffbutton.setOnClickListener(){
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                sound_check = 1
             }
             resumebutton.setOnClickListener(){
                 pausebutton.visibility = View.VISIBLE

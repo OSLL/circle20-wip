@@ -89,6 +89,11 @@ class First_screen : AppCompatActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            if (lvlcheck == 13) {
+                val intent = Intent(this, Level13::class.java)
+                startActivity(intent)
+                this.finish()
+            }
             }
         list_of_levels.setOnClickListener(){
             val intent = Intent(this, menu::class.java)
