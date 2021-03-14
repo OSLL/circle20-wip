@@ -1,12 +1,13 @@
 package com.megaprojectsuperpuper.thecode
 
 
+import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -15,19 +16,19 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level13 : AppCompatActivity() {
+class Level14 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "13. Все сразу"
+    var name = "14. Синий зуб"
     var lvlcheck = 1
-    var flag = false
+    var sound_check = 0
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 13)
+        lvlcheck = prefs.getInt("lvlcheck", 1)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 
@@ -45,13 +46,12 @@ class Level13 : AppCompatActivity() {
 
 
 
-
         pausebutton.setOnClickListener(){
             pausebutton.visibility = View.INVISIBLE
             resumebutton.visibility = View.VISIBLE
             menubutton.visibility = View.VISIBLE
-            soundoffbutton.visibility = View.VISIBLE
             soundbutton.visibility = View.VISIBLE
+            soundoffbutton.visibility = View.VISIBLE
             redbutton.isClickable = false
             num1.isClickable = false
             num2.isClickable = false
@@ -70,6 +70,8 @@ class Level13 : AppCompatActivity() {
             textView4.alpha = 0.8f
             imageView.alpha = 0.8f
             stol.alpha = 0.8f
+
+
             menubutton.setOnClickListener(){
                 val intent = Intent(this, menu::class.java)
                 startActivity(intent)
@@ -78,17 +80,19 @@ class Level13 : AppCompatActivity() {
             soundbutton.setOnClickListener(){
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                sound_check = 0
             }
             soundoffbutton.setOnClickListener(){
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                sound_check = 1
             }
             resumebutton.setOnClickListener(){
                 pausebutton.visibility = View.VISIBLE
                 resumebutton.visibility = View.INVISIBLE
                 menubutton.visibility = View.INVISIBLE
-                soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                soundbutton.visibility = View.INVISIBLE
                 redbutton.isClickable = true
                 num1.isClickable = true
                 num2.isClickable = true
@@ -118,15 +122,15 @@ class Level13 : AppCompatActivity() {
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 13) <= 14) {
-            lvlcheck = 14
+        if (prefs.getInt("lvlcheck", 14) <= 15) {
+            lvlcheck = 15
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level14::class.java)
+            val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -150,112 +154,94 @@ class Level13 : AppCompatActivity() {
             num8.visibility = View.VISIBLE
             num9.visibility = View.VISIBLE
             num0.visibility = View.VISIBLE
-            Level12()
+            redbutton.setOnClickListener{
+                val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+                if (mBluetoothAdapter == null) {
+                    Log.d("BLUETOOTHcheck", "not exist")
+                    // Device does not support Bluetooth
+                } else if (mBluetoothAdapter.isEnabled) {
+                    Log.d("BLUETOOTHcheck", "enabled")
+                    // Bluetooth is not enabled :)
+                    Level12()
+                    textView.text = check
+                } else {
+                    Log.d("BLUETOOTHcheck", "disabled")
+                    // Bluetooth is enabled
+                }
+            }
         }
     }
     fun Level12() {
-        redbutton.setOnTouchListener {v, event ->
-            if (event.action == KeyEvent.ACTION_DOWN)
-            {
-                if (editcheck) {
-                    textView.visibility = View.VISIBLE
-                    textView.text = check
-                }
-                flag = true
-
+        num1.setOnClickListener{
+            if (editcheck){
+                text += "1 "
+                textView4.setText(text)
+                bool()
             }
-            else if (event.action == KeyEvent.ACTION_UP)
-            {
-                flag = false
-            }
-            if(flag) {
-                num1.setOnClickListener {
-                    if (editcheck) {
-                        text += "1 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num2.setOnClickListener {
-                    if (editcheck) {
-                        text += "2 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num3.setOnClickListener {
-                    if (editcheck) {
-                        text += "3 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num4.setOnClickListener {
-                    if (editcheck) {
-                        text += "4 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num5.setOnClickListener {
-                    if (editcheck) {
-                        text += "5 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num6.setOnClickListener {
-                    if (editcheck) {
-                        text += "6 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num7.setOnClickListener {
-                    if (editcheck) {
-                        text += "7 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num8.setOnClickListener {
-                    if (editcheck) {
-                        text += "8 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num9.setOnClickListener {
-                    if (editcheck) {
-                        text += "9 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num0.setOnClickListener {
-                    if (editcheck) {
-                        text += "0 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-            }
-            else {
-                num1.isClickable = false
-                num2.isClickable = false
-                num3.isClickable = false
-                num4.isClickable = false
-                num5.isClickable = false
-                num6.isClickable = false
-                num7.isClickable = false
-                num8.isClickable = false
-                num9.isClickable = false
-                num0.isClickable = false}
-            return@setOnTouchListener true
-
-
         }
-
+        num2.setOnClickListener{
+            if (editcheck) {
+                text += "2 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num3.setOnClickListener{
+            if (editcheck) {
+                text += "3 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num4.setOnClickListener{
+            if (editcheck) {
+                text += "4 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num5.setOnClickListener{
+            if (editcheck) {
+                text += "5 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num6.setOnClickListener{
+            if (editcheck) {
+                text += "6 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num7.setOnClickListener{
+            if (editcheck) {
+                text += "7 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num8.setOnClickListener{
+            if (editcheck) {
+                text += "8 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num9.setOnClickListener{
+            if (editcheck) {
+                text += "9 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num0.setOnClickListener{
+            if (editcheck) {
+                text += "0 "
+                textView4.setText(text)
+                bool()
+            }
+        }
     }
     fun bool(): Unit{
         i++

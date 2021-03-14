@@ -140,7 +140,7 @@ class Level11 : AppCompatActivity() {
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level12::class.java)
+            val intent = Intent(this, Level13::class.java)
             startActivity(intent)
             this.finish()
         }
