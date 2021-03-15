@@ -257,7 +257,7 @@ class menu : AppCompatActivity() {
             lvl15.visibility = View.VISIBLE
 
         }
-        if(lvlcheck == 15){
+        if(lvlcheck == 16){
             block2.visibility = View.INVISIBLE
             lvl2.visibility = View.VISIBLE
             block3.visibility = View.INVISIBLE

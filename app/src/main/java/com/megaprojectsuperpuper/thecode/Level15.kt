@@ -20,7 +20,7 @@ class Level15 : AppCompatActivity() {
     var text = ""
     var check = ""
     var name = "15. Баг с паузой"
-    var lvlcheck = 1
+    var lvlcheck = 15
     var sound_check = 0
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {

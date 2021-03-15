@@ -177,7 +177,7 @@ class Level12 : AppCompatActivity() {
         val torchCallback: CameraManager.TorchCallback = @RequiresApi(Build.VERSION_CODES.M)
         object : CameraManager.TorchCallback() {
             override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
-                Log.d("FLASH_CHECK", "status: $enabled")
+                Log.d("FLASH_CHECK", "status: $enabled , $cameraId ")
                 if (enabled){
                     imageView.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY)
                 }
