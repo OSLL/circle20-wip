@@ -42,29 +42,7 @@ class Level8 : AppCompatActivity() {
         }
 
         pausebutton.setOnClickListener(){
-            pausebutton.visibility = View.INVISIBLE
-            resumebutton.visibility = View.VISIBLE
-            soundoffbutton.visibility = View.VISIBLE
-            menubutton.visibility = View.VISIBLE
-            soundbutton.visibility = View.VISIBLE
-            redbutton.isClickable = false
-            num1.isClickable = false
-            num2.isClickable = false
-            num3.isClickable = false
-            num4.isClickable = false
-            num5.isClickable = false
-            num6.isClickable = false
-            num7.isClickable = false
-            num8.isClickable = false
-            num9.isClickable = false
-            num0.isClickable = false
-            mainbutton.isClickable = false
-            stol.isClickable = false
-
-            textView.alpha = 0.8f
-            textView4.alpha = 0.8f
-            imageView.alpha = 0.8f
-            stol.alpha = 0.8f
+            pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
             menubutton.setOnClickListener(){
                 val intent = Intent(this, menu::class.java)
                 startActivity(intent)
@@ -79,28 +57,7 @@ class Level8 : AppCompatActivity() {
                 soundoffbutton.visibility = View.INVISIBLE
             }
             resumebutton.setOnClickListener(){
-                pausebutton.visibility = View.VISIBLE
-                resumebutton.visibility = View.INVISIBLE
-                soundoffbutton.visibility = View.INVISIBLE
-                soundbutton.visibility = View.INVISIBLE
-                menubutton.visibility = View.INVISIBLE
-                redbutton.isClickable = true
-                num1.isClickable = true
-                num2.isClickable = true
-                num3.isClickable = true
-                num4.isClickable = true
-                num5.isClickable = true
-                num6.isClickable = true
-                num7.isClickable = true
-                num8.isClickable = true
-                num9.isClickable = true
-                num0.isClickable = true
-                mainbutton.isClickable = true
-                stol.isClickable = true
-                textView.alpha = 1f
-                textView4.alpha = 1f
-                imageView.alpha = 1f
-                stol.alpha = 1f
+                pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
             }
 
         }
@@ -125,6 +82,45 @@ class Level8 : AppCompatActivity() {
             startActivity(intent)
             this.finish()
         }
+    }
+    fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
+        var visres: Int = if (visibility== View.INVISIBLE){
+            View.VISIBLE }
+
+        else
+            View.INVISIBLE
+        var alphares: Float = if (alpha == 1f){
+            0.8f
+        }
+        else
+            1f
+        var clres: Boolean = clickable != true
+
+        pausebutton.visibility = visibility
+        resumebutton.visibility = visres
+        menubutton.visibility = visres
+        soundoffbutton.visibility = visres
+        soundbutton.visibility = visres
+        textView.alpha = alphares
+        textView4.alpha = alphares
+        imageView.alpha = alphares
+        stol.alpha = alphares
+        redbutton.isClickable = clres
+        num1.isClickable = clres
+        num2.isClickable = clres
+        num3.isClickable = clres
+        num4.isClickable = clres
+        num5.isClickable = clres
+        num6.isClickable = clres
+        num7.isClickable = clres
+        num8.isClickable = clres
+        num9.isClickable = clres
+        num0.isClickable = clres
+        mainbutton.isClickable = clres
+        stol.isClickable = clres
+
+
+
     }
     fun Level11(){
         mainbutton.setOnClickListener{

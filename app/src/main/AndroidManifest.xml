@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
-        <activity android:name=".Level15"></activity>
-        <activity android:name=".Level14" />
+        <activity android:name=".Level15"
+            android:screenOrientation="sensorPortrait" ></activity>
+        <activity android:name=".Level14"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".Level13"
             android:screenOrientation="sensorPortrait" />
