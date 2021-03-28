@@ -36,7 +36,7 @@ class Level7 : AppCompatActivity() {
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
             menubutton.setOnClickListener(){
-                val intent = Intent(this, menu::class.java)
+                val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }

@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -15,19 +14,22 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level13 : AppCompatActivity() {
+class Level16 : AppCompatActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "13. Все сразу"
-    var lvlcheck = 13
-    var flag = false
+    var name = "16.Найди кнопку"
+    var lvlcheck = 1
+    var buttoncheck = 1
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 13)
+        lvlcheck = prefs.getInt("lvlcheck", 16)
+        val editor = prefs.edit()
+        editor.putInt("buttoncheck0", buttoncheck)
+        editor.apply()
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 
@@ -42,12 +44,13 @@ class Level13 : AppCompatActivity() {
                 check += " "
             }
         }
-
+        Level11()
 
 
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
+
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
@@ -70,7 +73,6 @@ class Level13 : AppCompatActivity() {
 
 
 
-        Level11()
     }
     fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
         var visres: Int = if (visibility== View.INVISIBLE){
@@ -114,15 +116,15 @@ class Level13 : AppCompatActivity() {
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 13) <= 14) {
-            lvlcheck = 14
+        if (prefs.getInt("lvlcheck", 16) <= 17) {
+            lvlcheck = 17
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level14::class.java)
+            val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -150,108 +152,86 @@ class Level13 : AppCompatActivity() {
         }
     }
     fun Level12() {
-        redbutton.setOnTouchListener {v, event ->
-            if (event.action == KeyEvent.ACTION_DOWN)
-            {
-                if (editcheck) {
-                    textView.visibility = View.VISIBLE
-                    textView.text = check
-                }
-                flag = true
-
-            }
-            else if (event.action == KeyEvent.ACTION_UP)
-            {
-                flag = false
-            }
-            if(flag) {
-                num1.setOnClickListener {
-                    if (editcheck) {
-                        text += "1 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num2.setOnClickListener {
-                    if (editcheck) {
-                        text += "2 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num3.setOnClickListener {
-                    if (editcheck) {
-                        text += "3 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num4.setOnClickListener {
-                    if (editcheck) {
-                        text += "4 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num5.setOnClickListener {
-                    if (editcheck) {
-                        text += "5 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num6.setOnClickListener {
-                    if (editcheck) {
-                        text += "6 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num7.setOnClickListener {
-                    if (editcheck) {
-                        text += "7 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num8.setOnClickListener {
-                    if (editcheck) {
-                        text += "8 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num9.setOnClickListener {
-                    if (editcheck) {
-                        text += "9 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-                num0.setOnClickListener {
-                    if (editcheck) {
-                        text += "0 "
-                        textView4.setText(text)
-                        bool()
-                    }
-                }
-            }
-            else {
-                num1.isClickable = false
-                num2.isClickable = false
-                num3.isClickable = false
-                num4.isClickable = false
-                num5.isClickable = false
-                num6.isClickable = false
-                num7.isClickable = false
-                num8.isClickable = false
-                num9.isClickable = false
-                num0.isClickable = false}
-            return@setOnTouchListener true
+        buttoncheck = prefs.getInt("buttoncheck1", 1)
+        if (buttoncheck ==2){
+            textView.text = check
+            buttoncheck = 0
+            val editor = prefs.edit()
+            editor.putInt("buttoncheck1", buttoncheck)
+            editor.apply()
 
 
         }
-
+        num1.setOnClickListener{
+            if (editcheck){
+                text += "1 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num2.setOnClickListener{
+            if (editcheck) {
+                text += "2 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num3.setOnClickListener{
+            if (editcheck) {
+                text += "3 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num4.setOnClickListener{
+            if (editcheck) {
+                text += "4 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num5.setOnClickListener{
+            if (editcheck) {
+                text += "5 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num6.setOnClickListener{
+            if (editcheck) {
+                text += "6 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num7.setOnClickListener{
+            if (editcheck) {
+                text += "7 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num8.setOnClickListener{
+            if (editcheck) {
+                text += "8 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num9.setOnClickListener{
+            if (editcheck) {
+                text += "9 "
+                textView4.setText(text)
+                bool()
+            }
+        }
+        num0.setOnClickListener{
+            if (editcheck) {
+                text += "0 "
+                textView4.setText(text)
+                bool()
+            }
+        }
     }
     fun bool(): Unit{
         i++

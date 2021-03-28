@@ -48,7 +48,7 @@ class Level4 : AppCompatActivity() {
             imageView.alpha = 0.8f
             stol.alpha = 0.8f
             menubutton.setOnClickListener(){
-                val intent = Intent(this, menu::class.java)
+                val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }

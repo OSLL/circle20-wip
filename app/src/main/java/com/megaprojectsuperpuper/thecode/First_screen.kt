@@ -13,11 +13,13 @@ import kotlinx.android.synthetic.main.activity_first_screen.*
 class First_screen : AppCompatActivity() {
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
+    var buttoncheck = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_screen)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         lvlcheck = prefs.getInt("lvlcheck", 1)
+        buttoncheck = prefs.getInt("buttoncheck0", 0)
         play.setOnClickListener{
             if (lvlcheck == 1){
                 val intent = Intent(this, Level1::class.java)
@@ -105,7 +107,17 @@ class First_screen : AppCompatActivity() {
                 this.finish()
             }
             if (lvlcheck == 16) {
-                val intent = Intent(this, Level15::class.java)
+                val intent = Intent(this, Level16::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            if (lvlcheck == 17) {
+                val intent = Intent(this, Level17::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            if (lvlcheck == 18) {
+                val intent = Intent(this, Level17::class.java)
                 startActivity(intent)
                 this.finish()
             }
@@ -114,6 +126,17 @@ class First_screen : AppCompatActivity() {
             val intent = Intent(this, menu::class.java)
             startActivity(intent)
             this.finish()
+
+        }
+        game_name.setOnClickListener(){
+            if (buttoncheck == 1){
+                buttoncheck = 2
+                val editor = prefs.edit()
+                editor.putInt("buttoncheck1", buttoncheck)
+                editor.apply()
+                editor.putInt("buttoncheck0", 0)
+                editor.apply()
+            }
 
         }
         }
