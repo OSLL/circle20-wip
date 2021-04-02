@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_first_screen.*
 
 
 
-class First_screen : AppCompatActivity() {
+class First_screen : BackMusicActivity() {
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     var buttoncheck = 0

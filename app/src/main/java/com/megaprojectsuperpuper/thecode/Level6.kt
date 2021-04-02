@@ -15,7 +15,7 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level6 : AppCompatActivity() {
+class Level6 : BackMusicActivity() {
     var i = 0
     var editcheck = true
     var text = ""
@@ -157,84 +157,55 @@ class Level6 : AppCompatActivity() {
 
     }
     fun Level12() {
-            setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-
-            redbutton.setOnClickListener {
-                if (editcheck) {
-                    textView.visibility = View.VISIBLE
-                    textView.text = check
-                }
+        lvl_name.setOnClickListener{
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = "6 6 6 6 "
             }
-            num1.setOnClickListener {
-                if (editcheck) {
-                    text += "1 "
-                    textView4.setText(text)
-                    bool()
-                }
+        }
+        redbutton.setOnClickListener{
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = check
             }
-            num2.setOnClickListener {
-                if (editcheck) {
-                    text += "2 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num3.setOnClickListener {
-                if (editcheck) {
-                    text += "3 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num4.setOnClickListener {
-                if (editcheck) {
-                    text += "4 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num5.setOnClickListener {
-                if (editcheck) {
-                    text += "5 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num6.setOnClickListener {
-                if (editcheck) {
-                    text += "6 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num7.setOnClickListener {
-                if (editcheck) {
-                    text += "7 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num8.setOnClickListener {
-                if (editcheck) {
-                    text += "8 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num9.setOnClickListener {
-                if (editcheck) {
-                    text += "9 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
-            num0.setOnClickListener {
-                if (editcheck) {
-                    text += "0 "
-                    textView4.setText(text)
-                    bool()
-                }
-            }
+        }
+        num1.setOnClickListener{
+            vvod(1)
+        }
+        num2.setOnClickListener{
+            vvod(2)
+        }
+        num3.setOnClickListener{
+            vvod(3)
+        }
+        num4.setOnClickListener{
+            vvod(4)
+        }
+        num5.setOnClickListener{
+            vvod(5)
+        }
+        num6.setOnClickListener{
+            vvod(6)
+        }
+        num7.setOnClickListener{
+            vvod(7)
+        }
+        num8.setOnClickListener{
+            vvod(8)
+        }
+        num9.setOnClickListener{
+            vvod(9)
+        }
+        num0.setOnClickListener{
+            vvod(0)
+        }
+    }
+    fun vvod(num: Int){
+        if (editcheck){
+            text+= "$num "
+            textView4.setText(text)
+            bool()
+        }
 
     }
     fun bool(): Unit{

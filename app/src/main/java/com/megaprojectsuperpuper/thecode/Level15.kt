@@ -14,7 +14,7 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level15 : AppCompatActivity() {
+class Level15 : BackMusicActivity() {
     var i = 0
     var editcheck = true
     var text = ""
@@ -163,75 +163,36 @@ class Level15 : AppCompatActivity() {
             }
         }
         num1.setOnClickListener{
-            if (editcheck){
-                text += "1 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(1)
         }
         num2.setOnClickListener{
-            if (editcheck) {
-                text += "2 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(2)
         }
         num3.setOnClickListener{
-            if (editcheck) {
-                text += "3 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(3)
         }
         num4.setOnClickListener{
-            if (editcheck) {
-                text += "4 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(4)
         }
         num5.setOnClickListener{
-            if (editcheck) {
-                text += "5 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(5)
         }
         num6.setOnClickListener{
-            if (editcheck) {
-                text += "6 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(6)
         }
         num7.setOnClickListener{
-            if (editcheck) {
-                text += "7 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(7)
         }
         num8.setOnClickListener{
-            if (editcheck) {
-                text += "8 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(8)
         }
         num9.setOnClickListener{
-            if (editcheck) {
-                text += "9 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(9)
         }
         num0.setOnClickListener{
-            if (editcheck) {
-                text += "0 "
-                textView4.setText(text)
-                bool()
-            }
+            vvod(0)
         }
+
 
         redbutton.isClickable = false
         num1.isClickable = false
@@ -246,6 +207,14 @@ class Level15 : AppCompatActivity() {
         num0.isClickable = false
         mainbutton.isClickable = false
         stol.isClickable = false
+    }
+    fun vvod(num: Int){
+        if (editcheck){
+            text+= "$num "
+            textView4.setText(text)
+            bool()
+        }
+
     }
     fun bool(): Unit{
         i++

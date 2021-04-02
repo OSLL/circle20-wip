@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_menu.*
 
-class menu : AppCompatActivity() {
+class menu : BackMusicActivity() {
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

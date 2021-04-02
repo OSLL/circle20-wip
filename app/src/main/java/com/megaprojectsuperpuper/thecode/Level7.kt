@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
 
-class Level7 : AppCompatActivity() {
+class Level7 : BackMusicActivity() {
     var i = 0
     var second = 1
     var timer: Timer? = null
@@ -158,55 +158,42 @@ class Level7 : AppCompatActivity() {
             timer.start()
         }
         num1.setOnClickListener{
-            text += "1 "
-            textView4.setText(text)
-            go_back()
+            vvod(1)
         }
         num2.setOnClickListener{
-            text += "2 "
-            textView4.setText(text)
-            go_back()
+            vvod(2)
         }
         num3.setOnClickListener{
-            text += "3 "
-            textView4.setText(text)
-            go_back()
+            vvod(3)
         }
         num4.setOnClickListener{
-            text += "4 "
-            textView4.setText(text)
-            go_back()
+            vvod(4)
         }
         num5.setOnClickListener{
-            text += "5 "
-            textView4.setText(text)
-            go_back()
+            vvod(5)
         }
         num6.setOnClickListener{
-            text += "6 "
-            textView4.setText(text)
-            go_back()
+            vvod(6)
         }
         num7.setOnClickListener{
-            text += "7 "
-            textView4.setText(text)
-            go_back()
+            vvod(7)
         }
         num8.setOnClickListener{
-            text += "8 "
-            textView4.setText(text)
-            go_back()
+            vvod(8)
         }
         num9.setOnClickListener{
-            text += "9 "
-            textView4.setText(text)
-            go_back()
+            vvod(9)
         }
         num0.setOnClickListener{
-            text += "0 "
-            textView4.setText(text)
-            go_back()
+            vvod(0)
         }
+
+    }
+    fun vvod(num: Int){
+
+        text+= "$num "
+        textView4.setText(text)
+        bool()
 
     }
     fun bool(): Unit{
