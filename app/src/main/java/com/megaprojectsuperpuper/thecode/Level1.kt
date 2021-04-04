@@ -55,10 +55,12 @@ class Level1 : BackMusicActivity() {
             soundbutton.setOnClickListener(){
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
