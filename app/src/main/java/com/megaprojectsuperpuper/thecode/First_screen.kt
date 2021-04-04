@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_first_screen.*
 
 
@@ -14,12 +15,12 @@ class First_screen : BackMusicActivity() {
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     var buttoncheck = 0
+    var languagecheck = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_screen)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         lvlcheck = prefs.getInt("lvlcheck", 1)
-        buttoncheck = prefs.getInt("buttoncheck0", 0)
         play.setOnClickListener{
             if (lvlcheck == 1){
                 val intent = Intent(this, Level1::class.java)
@@ -117,7 +118,12 @@ class First_screen : BackMusicActivity() {
                 this.finish()
             }
             if (lvlcheck == 18) {
-                val intent = Intent(this, Level17::class.java)
+                val intent = Intent(this, Level18::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            if (lvlcheck == 19) {
+                val intent = Intent(this, Level18::class.java)
                 startActivity(intent)
                 this.finish()
             }
@@ -128,6 +134,7 @@ class First_screen : BackMusicActivity() {
             this.finish()
 
         }
+        buttoncheck = prefs.getInt("buttoncheck0", 0)
         game_name.setOnClickListener(){
             if (buttoncheck == 1){
                 buttoncheck = 2
@@ -139,6 +146,50 @@ class First_screen : BackMusicActivity() {
             }
 
         }
+        options.setOnClickListener(){
+            resumebutton2.visibility = View.VISIBLE
+            soundbutton2.visibility = View.VISIBLE
+            game_name.visibility = View.INVISIBLE
+            list_of_levels.visibility = View.INVISIBLE
+            options.visibility=View.INVISIBLE
+            play.visibility=View.INVISIBLE
+            if(prefs.getInt("languagecheck0", 0) == 1){
+                language.visibility = View.VISIBLE
+                val editor = prefs.edit()
+                editor.putInt("languagecheck1", 2)
+                editor.apply()
+                editor.putInt("languagecheck0", 0)
+                editor.apply()
+            }
+
+        }
+        resumebutton2.setOnClickListener(){
+            soundbutton2.visibility = View.INVISIBLE
+            soundoffbutton2.visibility=View.INVISIBLE
+            resumebutton2.visibility=View.INVISIBLE
+            language.visibility = View.INVISIBLE
+            game_name.visibility = View.VISIBLE
+            list_of_levels.visibility = View.VISIBLE
+            options.visibility=View.VISIBLE
+            play.visibility=View.VISIBLE
+
+        }
+        soundbutton2.setOnClickListener(){
+            soundoffbutton2.visibility = View.VISIBLE
+            soundbutton2.visibility = View.INVISIBLE
+
+        }
+        soundoffbutton2.setOnClickListener(){
+            soundbutton2.visibility = View.VISIBLE
+            soundoffbutton2.visibility = View.INVISIBLE
+
+        }
+        language.setOnClickListener(){
+            language.text = "Русский"
+
+        }
+
+
         }
 
 

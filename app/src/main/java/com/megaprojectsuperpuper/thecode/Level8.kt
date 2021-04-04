@@ -149,12 +149,6 @@ class Level8 : BackMusicActivity() {
         lvl_name.setOnClickListener{
             if (editcheck) {
                 textView.visibility = View.VISIBLE
-                textView.text = "6 6 6 6 "
-            }
-        }
-        redbutton.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
                 textView.text = check
             }
         }

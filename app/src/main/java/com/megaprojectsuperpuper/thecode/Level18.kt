@@ -1,13 +1,11 @@
 package com.megaprojectsuperpuper.thecode
 
 
-import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -16,19 +14,22 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level14 : BackMusicActivity() {
+class Level18 : BackMusicActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "14. Синий зуб"
-    var lvlcheck = 14
-    var sound_check = 0
+    var name = "18. Проблема с локализацией"
+    var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 1)
+        lvlcheck = prefs.getInt("lvlcheck", 18)
+        val editor = prefs.edit()
+        editor.putInt("languagecheck0", 1)
+        editor.apply()
+
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 
@@ -43,12 +44,12 @@ class Level14 : BackMusicActivity() {
                 check += " "
             }
         }
+        Level11()
 
 
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
-
 
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
@@ -58,12 +59,10 @@ class Level14 : BackMusicActivity() {
             soundbutton.setOnClickListener(){
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
-                sound_check = 0
             }
             soundoffbutton.setOnClickListener(){
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
-                sound_check = 1
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
@@ -74,7 +73,6 @@ class Level14 : BackMusicActivity() {
 
 
 
-        Level11()
     }
     fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
         var visres: Int = if (visibility== View.INVISIBLE){
@@ -118,15 +116,15 @@ class Level14 : BackMusicActivity() {
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 14) <= 15) {
-            lvlcheck = 15
+        if (prefs.getInt("lvlcheck", 18) <= 19) {
+            lvlcheck = 19
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level15::class.java)
+            val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -150,25 +148,20 @@ class Level14 : BackMusicActivity() {
             num8.visibility = View.VISIBLE
             num9.visibility = View.VISIBLE
             num0.visibility = View.VISIBLE
-            redbutton.setOnClickListener{
-                val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-                if (mBluetoothAdapter == null) {
-                    Log.d("BLUETOOTHcheck", "not exist")
-                    // Device does not support Bluetooth
-                } else if (mBluetoothAdapter.isEnabled) {
-                    Log.d("BLUETOOTHcheck", "enabled")
-                    // Bluetooth is not enabled :)
-                    Level12()
-                    textView.text = check
-                } else {
-                    Log.d("BLUETOOTHcheck", "disabled")
-                    // Bluetooth is enabled
-                }
-            }
+            Level12()
         }
     }
-
     fun Level12() {
+        if (prefs.getInt("languagecheck1", 1) == 2){
+            textView.visibility = View.VISIBLE
+            textView.setText(check)
+            val editor = prefs.edit()
+            editor.putInt("languagecheck1", 0)
+            editor.apply()
+            editor.putInt("languagecheck0", 0)
+            editor.apply()
+
+        }
         num1.setOnClickListener{
             vvod(1)
         }

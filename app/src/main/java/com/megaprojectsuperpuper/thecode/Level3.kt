@@ -169,18 +169,6 @@ class Level3 : BackMusicActivity() {
         }
     }
     fun Level12() {
-        lvl_name.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = "6 6 6 6 "
-            }
-        }
-        redbutton.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = check
-            }
-        }
         num1.setOnClickListener{
             vvod(1)
         }

@@ -159,33 +159,44 @@ class Level7 : BackMusicActivity() {
         }
         num1.setOnClickListener{
             vvod(1)
+            go_back()
         }
         num2.setOnClickListener{
             vvod(2)
+            go_back()
         }
         num3.setOnClickListener{
             vvod(3)
+            go_back()
         }
         num4.setOnClickListener{
             vvod(4)
+            go_back()
         }
         num5.setOnClickListener{
             vvod(5)
+            go_back()
         }
         num6.setOnClickListener{
             vvod(6)
+            go_back()
         }
         num7.setOnClickListener{
             vvod(7)
+            go_back()
         }
         num8.setOnClickListener{
             vvod(8)
+            go_back()
+
         }
         num9.setOnClickListener{
             vvod(9)
+            go_back()
         }
         num0.setOnClickListener{
             vvod(0)
+            go_back()
         }
 
     }

@@ -16,12 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
+        <activity android:name=".Level18"></activity>
 
         <service
             android:name=".BackgroundMusic"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="true" />  />
+            android:stopWithTask="true" />
 
         <activity android:name=".Level17" />
         <activity android:name=".Level16" />

@@ -577,6 +577,11 @@ class menu : BackMusicActivity() {
             startActivity(intent)
             this.finish()
         }
+        lvl18.setOnClickListener(){
+            val intent = Intent(this, Level18::class.java)
+            startActivity(intent)
+            this.finish()
+        }
 
 
     }

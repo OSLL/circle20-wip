@@ -125,7 +125,7 @@ class Level17 : BackMusicActivity() {
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level2::class.java)
+            val intent = Intent(this, Level18::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -153,18 +153,6 @@ class Level17 : BackMusicActivity() {
         }
     }
     fun Level12() {
-        lvl_name.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = "6 6 6 6 "
-            }
-        }
-        redbutton.setOnClickListener{
-            if (editcheck) {
-                textView.visibility = View.VISIBLE
-                textView.text = check
-            }
-        }
         num1.setOnClickListener{
             vvod(1)
         }
