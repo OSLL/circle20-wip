@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#183C33"
     tools:context=".Level1">
 
     <RadioGroup
@@ -22,25 +24,25 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="415dp"
-        android:layout_height="620dp"
-        android:layout_marginStart="13dp"
+        android:layout_width="1161dp"
+        android:layout_height="665dp"
         android:layout_marginTop="49dp"
         android:layout_marginBottom="72dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/photo5260363687036826006"
-        tools:srcCompat="@drawable/photo5260363687036826006"
-        tools:visibility="invisible" />
+        app:layout_constraintVertical_bias="0.495"
+        app:srcCompat="@drawable/sejf"
+        tools:srcCompat="@drawable/ss"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="105dp"
-        android:layout_height="37dp"
+        android:layout_width="109dp"
+        android:layout_height="41dp"
         android:layout_marginStart="77dp"
         android:layout_marginTop="291dp"
         android:layout_marginEnd="234dp"
@@ -49,22 +51,28 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.488"
         tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="105dp"
-        android:layout_height="37dp"
-        android:textSize="30sp"
+        android:layout_width="100dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="221dp"
+        android:layout_marginBottom="398dp"
+        android:textSize="32sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <RadioGroup
         android:id="@+id/num1"
@@ -79,37 +87,40 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.534"
         tools:visibility="invisible" />
 
     <RadioGroup
         android:id="@+id/num2"
-        android:layout_width="30dp"
+        android:layout_width="31dp"
         android:layout_height="32dp"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="215dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="373dp"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="420dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.553" />
 
     <RadioGroup
         android:id="@+id/num3"
-        android:layout_width="31dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="286dp"
-        android:layout_marginTop="215dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="374dp"
+        android:layout_width="30dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="267dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="420dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.553" />
 
     <RadioGroup
         android:id="@+id/num5"
@@ -123,21 +134,24 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.488" />
 
     <RadioGroup
         android:id="@+id/num6"
-        android:layout_width="32dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="285dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="330dp"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="267dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="378dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.517" />
 
     <RadioGroup
         android:id="@+id/num7"
@@ -164,8 +178,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.51" />
 
     <RadioGroup
         android:id="@+id/num9"
@@ -178,62 +194,49 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.488" />
 
     <RadioGroup
         android:id="@+id/num0"
-        android:layout_width="34dp"
+        android:layout_width="32dp"
         android:layout_height="31dp"
-        android:layout_marginStart="243dp"
-        android:layout_marginTop="342dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="302dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/redbutton"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <RadioGroup
         android:id="@+id/redbutton"
-        android:layout_width="110dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="347dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="248dp"
+        android:layout_width="107dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="222dp"
+        android:layout_marginBottom="307dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/num0"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/lvl_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="42dp"
-        android:text="1.Пока все просто"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/error"
-        android:layout_width="107dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="287dp"
-        android:layout_marginEnd="233dp"
-        android:layout_marginBottom="288dp"
+        android:layout_width="106dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="342dp"
+        android:layout_marginEnd="222dp"
+        android:layout_marginBottom="342dp"
         android:fontFamily="casual"
         android:text="ERROR"
         android:textColor="#000000"
@@ -242,46 +245,139 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/pausebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="323dp"
-        android:text="menu"
-        app:layout_constraintBottom_toTopOf="@+id/redbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.446"
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/stol"
-        android:layout_width="1139dp"
-        android:layout_height="528dp"
+        android:layout_width="1140dp"
+        android:layout_height="537dp"
+        android:background="#00152E27"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601"
-        app:srcCompat="@drawable/stol_" />
+        app:layout_constraintVertical_bias="0.548"
+        app:srcCompat="@drawable/v3"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/lvl_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/albionic"
+        android:text="1.Пока все просто"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/mainbutton"
-        android:layout_width="105dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="313dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginBottom="336dp"
+        android:layout_width="87dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="303dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="339dp"
         app:layout_constraintBottom_toBottomOf="@+id/stol"
         app:layout_constraintEnd_toEndOf="@+id/stol"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="@+id/stol"
         app:layout_constraintTop_toTopOf="@+id/stol"
-        app:layout_constraintVertical_bias="0.479"
-        app:srcCompat="?attr/selectableItemBackgroundBorderless" />
+        app:layout_constraintVertical_bias="0.48"
+        app:srcCompat="?attr/selectableItemBackgroundBorderless"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/pausebutton"
+        android:layout_width="89dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="342dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="659dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pause" />
+
+    <ImageView
+        android:id="@+id/resumebutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="287dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/_0734"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/menubutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menupin"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/soundbutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/soundpin"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/soundoffbutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/soundoffpin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
