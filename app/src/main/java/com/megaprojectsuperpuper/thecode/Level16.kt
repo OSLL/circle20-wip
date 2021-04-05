@@ -22,6 +22,7 @@ class Level16 : BackMusicActivity() {
     var name = "16.Найди кнопку"
     var lvlcheck = 1
     var buttoncheck = 1
+    var soundcheck = 0
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,18 +52,31 @@ class Level16 : BackMusicActivity() {
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
 
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }
             soundbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 1)
+                editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
             }
             soundoffbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 0)
+                editor.apply()
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)

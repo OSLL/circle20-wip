@@ -16,7 +16,7 @@ class BackgroundMusic : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        mediaPlayer = MediaPlayer.create(this, R.raw.backgroundd_theme)
+        mediaPlayer = MediaPlayer.create(this, R.raw.background_theme)
         mediaPlayer?.isLooping = true;
         mediaPlayer?.setVolume(10F, 100F)
     }

@@ -20,12 +20,19 @@ class Level2 : BackMusicActivity() {
     var name = "2.Беспорядок"
     private lateinit var prefs: SharedPreferences
     var lvlcheck = 2
+    var soundcheck = 0
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (soundcheck == 1){
+            soundbutton.visibility = View.INVISIBLE
+            soundoffbutton.visibility = View.VISIBLE
+            stopService(Intent(this, BackgroundMusic::class.java))
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         lvlcheck = prefs.getInt("lvlcheck", 2)
+        soundcheck = prefs.getInt("soundcheck", 0)
         for (i in 1..4){
             var a = Math.random()
             while (round(a*10).toInt() ==10)
@@ -39,20 +46,31 @@ class Level2 : BackMusicActivity() {
         }
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
-
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }
             soundbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 1)
+                editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
-
             }
             soundoffbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 0)
+                editor.apply()
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)

@@ -4,15 +4,9 @@ package com.megaprojectsuperpuper.thecode
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
-import android.graphics.Color
-import android.hardware.camera2.CameraManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -24,31 +18,18 @@ class Level12 : BackMusicActivity() {
     var i = 0
     var editcheck = true
     var text = ""
+    var soundcheck = 0
     var check = ""
-    var name = "12. Посветишь?"
+    var name = "12.Старайся больше"
     var lvlcheck = 1
+    var codecheck = 0
     private lateinit var prefs: SharedPreferences
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-//      TODO: skip level if no flashlight
-        Log.d(
-                "FLASH_CHECK",
-                "Flash: ${baseContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)}"
-        )
-
-
-
-
-
-
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        lvlcheck = prefs.getInt("lvlcheck", 12)
+        lvlcheck = prefs.getInt("lvlcheck", 1)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
-
 
         for (i in 1..4){
             var a = Math.random()
@@ -61,22 +42,37 @@ class Level12 : BackMusicActivity() {
                 check += " "
             }
         }
+        Level11()
+
 
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }
             soundbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 1)
+                editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
             }
             soundoffbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 0)
+                editor.apply()
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
@@ -87,7 +83,6 @@ class Level12 : BackMusicActivity() {
 
 
 
-        Level11()
     }
     fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
         var visres: Int = if (visibility== View.INVISIBLE){
@@ -131,8 +126,8 @@ class Level12 : BackMusicActivity() {
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 12) <= 13) {
-            lvlcheck = 13
+        if (prefs.getInt("lvlcheck", 1) <= 2) {
+            lvlcheck = 2
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
@@ -144,7 +139,6 @@ class Level12 : BackMusicActivity() {
             this.finish()
         }
     }
-    @RequiresApi(Build.VERSION_CODES.M)
     fun Level11(){
         mainbutton.setOnClickListener{
             //запуска второй активити в вводом кода
@@ -165,31 +159,16 @@ class Level12 : BackMusicActivity() {
             num9.visibility = View.VISIBLE
             num0.visibility = View.VISIBLE
             Level12()
-
         }
     }
-    @RequiresApi(Build.VERSION_CODES.M)
     fun Level12() {
-        val torchCallback: CameraManager.TorchCallback = @RequiresApi(Build.VERSION_CODES.M)
-        object : CameraManager.TorchCallback() {
-            override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
-                Log.d("FLASH_CHECK", "status: $enabled , $cameraId ")
-                if (enabled){
-                    imageView.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY)
-                }
-
-                super.onTorchModeChanged(cameraId, enabled)
-
-            }
-
-        }
-        val manager = baseContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-        manager.registerTorchCallback(torchCallback, null)
-
         redbutton.setOnClickListener{
-            if (editcheck) {
+            if (codecheck == 4) {
                 textView.visibility = View.VISIBLE
                 textView.text = check
+            }
+            else{
+                codecheck += 1
             }
         }
         num1.setOnClickListener{

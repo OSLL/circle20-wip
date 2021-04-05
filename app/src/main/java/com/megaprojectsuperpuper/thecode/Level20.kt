@@ -1,13 +1,10 @@
 package com.megaprojectsuperpuper.thecode
 
 
-import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -16,14 +13,14 @@ import kotlin.concurrent.schedule
 import kotlin.math.round
 
 
-class Level14 : BackMusicActivity() {
+class Level20 : BackMusicActivity() {
     var i = 0
     var editcheck = true
     var text = ""
     var check = ""
+    var name = "20.Ты знаешь что делать!"
+    var lvlcheck = 1
     var soundcheck = 0
-    var name = "14. Синий зуб"
-    var lvlcheck = 14
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +28,7 @@ class Level14 : BackMusicActivity() {
         lvlcheck = prefs.getInt("lvlcheck", 1)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
+
 
         for (i in 1..4){
             var a = Math.random()
@@ -43,12 +41,12 @@ class Level14 : BackMusicActivity() {
                 check += " "
             }
         }
+        Level11()
 
 
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
-
             soundcheck = prefs.getInt("soundcheck", 0)
             if (soundcheck == 1){
                 soundbutton.visibility = View.INVISIBLE
@@ -84,7 +82,6 @@ class Level14 : BackMusicActivity() {
 
 
 
-        Level11()
     }
     fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
         var visres: Int = if (visibility== View.INVISIBLE){
@@ -102,8 +99,8 @@ class Level14 : BackMusicActivity() {
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
         menubutton.visibility = visres
-        soundoffbutton.visibility = visres
         soundbutton.visibility = visres
+        soundoffbutton.visibility = visres
         textView.alpha = alphares
         textView4.alpha = alphares
         imageView.alpha = alphares
@@ -128,15 +125,18 @@ class Level14 : BackMusicActivity() {
 
 
     fun kubok(){
-        if (prefs.getInt("lvlcheck", 14) <= 15) {
-            lvlcheck = 15
+        if (prefs.getInt("lvlcheck", 20) <= 21) {
+            lvlcheck = 21
             val editor = prefs.edit()
             editor.putInt("lvlcheck", lvlcheck)
             editor.apply()
         }
         setContentView(R.layout.activity_mainf)
-        buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level15::class.java)
+        buttonlvl.visibility=View.INVISIBLE
+        imageView2.visibility=View.INVISIBLE
+        final_text.visibility = View.VISIBLE
+        final_text.setOnClickListener(){
+            val intent = Intent(this, First_screen::class.java)
             startActivity(intent)
             this.finish()
         }
@@ -160,25 +160,22 @@ class Level14 : BackMusicActivity() {
             num8.visibility = View.VISIBLE
             num9.visibility = View.VISIBLE
             num0.visibility = View.VISIBLE
-            redbutton.setOnClickListener{
-                val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-                if (mBluetoothAdapter == null) {
-                    Log.d("BLUETOOTHcheck", "not exist")
-                    // Device does not support Bluetooth
-                } else if (mBluetoothAdapter.isEnabled) {
-                    Log.d("BLUETOOTHcheck", "enabled")
-                    // Bluetooth is not enabled :)
-                    Level12()
-                    textView.text = check
-                } else {
-                    Log.d("BLUETOOTHcheck", "disabled")
-                    // Bluetooth is enabled
-                }
-            }
+            Level12()
         }
     }
-
     fun Level12() {
+        lvl_name.setOnClickListener{
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = "6 6 6 6 "
+            }
+        }
+        redbutton.setOnClickListener{
+            if (editcheck) {
+                textView.visibility = View.VISIBLE
+                textView.text = check
+            }
+        }
         num1.setOnClickListener{
             vvod(1)
         }

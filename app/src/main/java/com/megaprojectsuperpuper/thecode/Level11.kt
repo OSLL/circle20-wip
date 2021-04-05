@@ -19,6 +19,7 @@ import kotlin.math.round
 class Level11 : BackMusicActivity() {
     var i = 0
     var editcheck = true
+    var soundcheck = 0
     var text = ""
     var check = ""
     var name = "11. Нужно больше энергии"
@@ -46,18 +47,31 @@ class Level11 : BackMusicActivity() {
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }
             soundbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 1)
+                editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
             }
             soundoffbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 0)
+                editor.apply()
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
@@ -136,7 +150,7 @@ class Level11 : BackMusicActivity() {
         }
         setContentView(R.layout.activity_mainf)
         buttonlvl.setOnClickListener(){
-            val intent = Intent(this, Level13::class.java)
+            val intent = Intent(this, Level12::class.java)
             startActivity(intent)
             this.finish()
         }
