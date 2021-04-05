@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCode">
-        <activity android:name=".Level18"></activity>
+        <activity android:name=".Level20"></activity>
+        <activity android:name=".Level19" />
+        <activity
+            android:name=".Level18"
+            android:screenOrientation="sensorPortrait" />
 
         <service
             android:name=".BackgroundMusic"
@@ -24,8 +28,12 @@
             android:exported="true"
             android:stopWithTask="true" />
 
-        <activity android:name=".Level17" />
-        <activity android:name=".Level16" />
+        <activity
+            android:name=".Level17"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Level16"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".Level15"
             android:screenOrientation="sensorPortrait" />

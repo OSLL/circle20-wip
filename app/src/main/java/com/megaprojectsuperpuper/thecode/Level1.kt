@@ -4,7 +4,6 @@ package com.megaprojectsuperpuper.thecode
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_level1.*
@@ -21,6 +20,7 @@ class Level1 : BackMusicActivity() {
     var check = ""
     var name = "1.Пока все просто"
     var lvlcheck = 1
+    var soundcheck = 0
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class Level1 : BackMusicActivity() {
         lvlcheck = prefs.getInt("lvlcheck", 1)
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
+
 
         for (i in 1..4){
             var a = Math.random()
@@ -46,21 +47,31 @@ class Level1 : BackMusicActivity() {
 
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
-
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton.visibility = View.INVISIBLE
+                soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
             }
             soundbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 1)
+                editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
-                startService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
+                val editor = prefs.edit()
+                editor.putInt("soundcheck", 0)
+                editor.apply()
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
-                stopService(Intent(this, BackgroundMusic::class.java))
+                startService(Intent(this, BackgroundMusic::class.java))
             }
             resumebutton.setOnClickListener(){
                 pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
@@ -88,8 +99,8 @@ class Level1 : BackMusicActivity() {
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
         menubutton.visibility = visres
-        soundoffbutton.visibility = visres
         soundbutton.visibility = visres
+        soundoffbutton.visibility = visres
         textView.alpha = alphares
         textView4.alpha = alphares
         imageView.alpha = alphares

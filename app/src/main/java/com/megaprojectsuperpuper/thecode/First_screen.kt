@@ -123,7 +123,17 @@ class First_screen : BackMusicActivity() {
                 this.finish()
             }
             if (lvlcheck == 19) {
-                val intent = Intent(this, Level18::class.java)
+                val intent = Intent(this, Level19::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            if (lvlcheck == 20) {
+                val intent = Intent(this, Level20::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+            if (lvlcheck == 21) {
+                val intent = Intent(this, Level20::class.java)
                 startActivity(intent)
                 this.finish()
             }
