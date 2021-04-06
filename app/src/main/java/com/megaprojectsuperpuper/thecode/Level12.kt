@@ -171,6 +171,11 @@ class Level12 : BackMusicActivity() {
                 codecheck += 1
             }
         }
+        delete.setOnClickListener{
+            textView4.setText("")
+            text = ""
+            i=0
+        }
         num1.setOnClickListener{
             vvod(1)
         }

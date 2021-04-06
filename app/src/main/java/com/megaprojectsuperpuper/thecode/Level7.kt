@@ -158,6 +158,11 @@ class Level7 : BackMusicActivity() {
         }
     }
     fun Level12() {
+        delete.setOnClickListener{
+            textView4.setText("")
+            text = ""
+            i=0
+        }
         redbutton.setOnClickListener{
             textView.text = check
             val timer = object: CountDownTimer(8000, 1000) {

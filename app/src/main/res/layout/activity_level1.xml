@@ -248,7 +248,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/v3"
-        tools:visibility="visible" />
+        tools:visibility="invisible" />
 
     <TextView
         android:id="@+id/lvl_name"
@@ -354,5 +354,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/soundoffpin" />
+
+    <RadioGroup
+        android:id="@+id/delete"
+        android:layout_width="31dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="382dp"
+        android:layout_marginEnd="182dp"
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

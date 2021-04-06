@@ -176,6 +176,11 @@ class Level18 : BackMusicActivity() {
             editor.apply()
 
         }
+        delete.setOnClickListener{
+            textView4.setText("")
+            text = ""
+            i=0
+        }
         num1.setOnClickListener{
             vvod(1)
         }

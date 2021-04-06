@@ -153,6 +153,11 @@ class Level4 : BackMusicActivity() {
             textView.visibility = View.VISIBLE
             if (a < 1) return false
         }
+        delete.setOnClickListener{
+            textView4.setText("")
+            text = ""
+            i=0
+        }
 
         num1.setOnClickListener{
             vvod(1)
