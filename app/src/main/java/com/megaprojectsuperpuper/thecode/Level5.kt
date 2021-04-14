@@ -95,14 +95,14 @@ class Level5 : BackMusicActivity() {
         }
 
         Level11()
-
+        // Создание объекта класса, отвечающего за определение значений акселерометра
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         Objects.requireNonNull(sensorManager)!!.registerListener(sensorListener, sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL)
         acceleration = 10f
         currentAcceleration = SensorManager.GRAVITY_EARTH
         lastAcceleration = SensorManager.GRAVITY_EARTH
     }
-
+    //Функция, получающая значения акселерометра и в случае нужного значения продолжающая прохождение уровня
     private val sensorListener: SensorEventListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) {
             val x = event.values[0]

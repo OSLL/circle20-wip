@@ -30,7 +30,7 @@ class Level1 : BackMusicActivity() {
         setContentView(R.layout.activity_level1)
         lvl_name.setText(name)
 
-
+        //Создание рандомизированного кода для сейфа
         for (i in 1..4){
             var a = Math.random()
             while (round(a*10).toInt() ==10)
@@ -45,7 +45,7 @@ class Level1 : BackMusicActivity() {
         Level11()
 
 
-
+        //При нажатии на кнопку паузы появляются новые кнопки-функции, остальные объекты становятся некликабельными
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
             soundcheck = prefs.getInt("soundcheck", 0)
@@ -93,6 +93,7 @@ class Level1 : BackMusicActivity() {
 
 
     }
+    //Функция появления и исчезновения кнопок при нажатии на паузу
     fun pauseupdate(clickable:Boolean, alpha:Float, visibility:Int){
         var visres: Int = if (visibility== View.INVISIBLE){
             View.VISIBLE }
@@ -134,7 +135,7 @@ class Level1 : BackMusicActivity() {
 
     }
 
-
+    //Функция перехода на следующий уровень
     fun kubok(){
         if (prefs.getInt("lvlcheck", 1) <= 2) {
             lvlcheck = 2
@@ -171,6 +172,7 @@ class Level1 : BackMusicActivity() {
             Level12()
         }
     }
+    //Основная функция для прохождения уровня игроком
     fun Level12() {
         lvl_name.setOnClickListener{
             if (editcheck) {
@@ -220,6 +222,7 @@ class Level1 : BackMusicActivity() {
             vvod(0)
         }
     }
+    //Функция ввода кода
     fun vvod(num: Int){
         if (editcheck){
             text+= "$num "
@@ -228,6 +231,7 @@ class Level1 : BackMusicActivity() {
         }
 
     }
+    //Функция проверки правильности кода
     fun bool(): Unit{
         i++
         if (i == 4){
@@ -244,11 +248,7 @@ class Level1 : BackMusicActivity() {
                     textView4.setText(text)
                     editcheck = true
                     error.visibility = View.INVISIBLE
-                    //Log.d("pupok", "gjrj")
-                    //textView.visibility = View.VISIBLE
                 }
-                //Log.d("pupok","kok")
-                //if (i == 0) textView.visibility = View.VISIBLE
 
             }
         }
