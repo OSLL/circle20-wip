@@ -754,4 +754,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/zamok" />
 
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/klipartz_com" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -63,6 +64,14 @@ class Level15 : BackMusicActivity() {
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
+            helpbutton.setOnClickListener(){
+                val text = "Попробуй не убирать паузу:)."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -100,6 +109,7 @@ class Level15 : BackMusicActivity() {
         resumebutton.visibility = visres
         menubutton.visibility = visres
         soundoffbutton.visibility = visres
+        helpbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares
         textView4.alpha = alphares

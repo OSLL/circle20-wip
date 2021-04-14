@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -46,7 +47,6 @@ class Level19 : BackMusicActivity() {
 
 
         pausebutton.setOnClickListener(){
-            pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
             soundcheck = prefs.getInt("soundcheck", 0)
             if (soundcheck == 1){
                 soundbutton.visibility = View.INVISIBLE
@@ -64,6 +64,14 @@ class Level19 : BackMusicActivity() {
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
+            helpbutton.setOnClickListener(){
+                val text = "Как ты вообще нашел эту подсказку?."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -72,9 +80,6 @@ class Level19 : BackMusicActivity() {
                 soundbutton.visibility = View.VISIBLE
                 soundoffbutton.visibility = View.INVISIBLE
                 startService(Intent(this, BackgroundMusic::class.java))
-            }
-            resumebutton.setOnClickListener(){
-                pauseupdate(clickable = false, alpha = 0.8f, visibility = View.VISIBLE)
             }
 
         }
@@ -99,6 +104,7 @@ class Level19 : BackMusicActivity() {
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
         menubutton.visibility = visres
+        helpbutton.visibility = visres
         soundoffbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares

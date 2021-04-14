@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -59,12 +60,20 @@ class Level12 : BackMusicActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            helpbutton.setOnClickListener(){
+                val text = "Кнопка не хочет с первого раза показывать код."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
             soundbutton.setOnClickListener(){
                 val editor = prefs.edit()
                 editor.putInt("soundcheck", 1)
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -101,6 +110,7 @@ class Level12 : BackMusicActivity() {
         resumebutton.visibility = visres
         menubutton.visibility = visres
         soundoffbutton.visibility = visres
+        helpbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares
         textView4.alpha = alphares

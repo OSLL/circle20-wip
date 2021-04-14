@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.os.BatteryManager
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -58,12 +59,20 @@ class Level11 : BackMusicActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            helpbutton.setOnClickListener(){
+                val text = "Энергия обычно появляется при зарядке."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
             soundbutton.setOnClickListener(){
                 val editor = prefs.edit()
                 editor.putInt("soundcheck", 1)
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -100,6 +109,7 @@ class Level11 : BackMusicActivity() {
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
         menubutton.visibility = visres
+        helpbutton.visibility = visres
         soundoffbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares

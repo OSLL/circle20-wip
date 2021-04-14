@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -57,12 +58,20 @@ class Level9 : BackMusicActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            helpbutton.setOnClickListener(){
+                val text = "Нужно как-то найти в телефоне самолет..."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
             soundbutton.setOnClickListener(){
                 val editor = prefs.edit()
                 editor.putInt("soundcheck", 1)
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -101,6 +110,7 @@ class Level9 : BackMusicActivity() {
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
         menubutton.visibility = visres
+        helpbutton.visibility = visres
         soundoffbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares
@@ -162,11 +172,6 @@ class Level9 : BackMusicActivity() {
                 num0.visibility = View.VISIBLE
                 Level12()
 
-            }
-            else{
-                val intent = Intent(this, Level9::class.java)
-                startActivity(intent)
-                this.finish()
             }
         }
     }

@@ -8,14 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_first_screen.*
-
+import kotlinx.android.synthetic.main.activity_level1.*
 
 
 class First_screen : BackMusicActivity() {
     var lvlcheck = 1
     private lateinit var prefs: SharedPreferences
     var buttoncheck = 0
-    var languagecheck = 0
+    var soundcheck = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_screen)
@@ -157,8 +157,14 @@ class First_screen : BackMusicActivity() {
 
         }
         options.setOnClickListener(){
-            resumebutton2.visibility = View.VISIBLE
             soundbutton2.visibility = View.VISIBLE
+            soundcheck = prefs.getInt("soundcheck", 0)
+            if (soundcheck == 1){
+                soundbutton2.visibility = View.INVISIBLE
+                soundoffbutton2.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
+            }
+            resumebutton2.visibility = View.VISIBLE
             game_name.visibility = View.INVISIBLE
             list_of_levels.visibility = View.INVISIBLE
             options.visibility=View.INVISIBLE
@@ -185,13 +191,21 @@ class First_screen : BackMusicActivity() {
 
         }
         soundbutton2.setOnClickListener(){
-            soundoffbutton2.visibility = View.VISIBLE
+            val editor = prefs.edit()
+            editor.putInt("soundcheck", 1)
+            editor.apply()
             soundbutton2.visibility = View.INVISIBLE
+            soundoffbutton2.visibility = View.VISIBLE
+            stopService(Intent(this, BackgroundMusic::class.java))
 
         }
         soundoffbutton2.setOnClickListener(){
+            val editor = prefs.edit()
+            editor.putInt("soundcheck", 0)
+            editor.apply()
             soundbutton2.visibility = View.VISIBLE
             soundoffbutton2.visibility = View.INVISIBLE
+            startService(Intent(this, BackgroundMusic::class.java))
 
         }
         language.setOnClickListener(){

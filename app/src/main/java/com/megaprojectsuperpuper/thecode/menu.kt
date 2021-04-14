@@ -483,6 +483,11 @@ class menu : BackMusicActivity() {
             lvl20.visibility = View.VISIBLE
 
         }
+        backbutton.setOnClickListener(){
+            val intent = Intent(this, First_screen::class.java)
+            startActivity(intent)
+            this.finish()
+        }
 
 
 

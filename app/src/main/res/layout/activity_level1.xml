@@ -254,7 +254,7 @@
         android:id="@+id/lvl_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/albionic"
         android:text="1.Пока все просто"
@@ -290,24 +290,20 @@
         android:layout_marginBottom="659dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.681"
         app:srcCompat="@drawable/pause" />
 
     <ImageView
         android:id="@+id/resumebutton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="287dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="577dp"
+        android:layout_width="65dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_0734"
         tools:visibility="visible" />
@@ -367,5 +363,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/helpbutton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="283dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="577dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pngegg"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

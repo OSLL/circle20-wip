@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
@@ -43,21 +44,28 @@ class Level4 : BackMusicActivity() {
         }
         pausebutton.setOnClickListener(){
             pauseupdate(clickable = true, alpha = 1f, visibility = View.INVISIBLE)
-
-            textView.alpha = 0.8f
-            textView4.alpha = 0.8f
-            imageView.alpha = 0.8f
-            stol.alpha = 0.8f
             soundcheck = prefs.getInt("soundcheck", 0)
             if (soundcheck == 1){
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
                 stopService(Intent(this, BackgroundMusic::class.java))
             }
+
+            textView.alpha = 0.8f
+            textView4.alpha = 0.8f
+            imageView.alpha = 0.8f
+            stol.alpha = 0.8f
             menubutton.setOnClickListener(){
                 val intent = Intent(this, First_screen::class.java)
                 startActivity(intent)
                 this.finish()
+            }
+            helpbutton.setOnClickListener(){
+                val text = "Увеличь звук, не слышно!"
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
             soundbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -65,6 +73,7 @@ class Level4 : BackMusicActivity() {
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -119,6 +128,7 @@ class Level4 : BackMusicActivity() {
         resumebutton.visibility = visres
         menubutton.visibility = visres
         soundoffbutton.visibility = visres
+        helpbutton.visibility = visres
         soundbutton.visibility = visres
         textView.alpha = alphares
         textView4.alpha = alphares

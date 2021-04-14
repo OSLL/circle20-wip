@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_level1.*
 import kotlinx.android.synthetic.main.activity_mainf.*
 import java.util.*
@@ -43,12 +44,20 @@ class Level10 : BackMusicActivity() {
                 startActivity(intent)
                 this.finish()
             }
+            helpbutton.setOnClickListener(){
+                val text = "Совмести уровень 1 и 8."
+                val duration = Toast.LENGTH_LONG
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
             soundbutton.setOnClickListener(){
                 val editor = prefs.edit()
                 editor.putInt("soundcheck", 1)
                 editor.apply()
                 soundbutton.visibility = View.INVISIBLE
                 soundoffbutton.visibility = View.VISIBLE
+                stopService(Intent(this, BackgroundMusic::class.java))
             }
             soundoffbutton.setOnClickListener(){
                 val editor = prefs.edit()
@@ -83,6 +92,7 @@ class Level10 : BackMusicActivity() {
 
         pausebutton.visibility = visibility
         resumebutton.visibility = visres
+        helpbutton.visibility = visres
         menubutton.visibility = visres
         soundoffbutton.visibility = visres
         soundbutton.visibility = visres
