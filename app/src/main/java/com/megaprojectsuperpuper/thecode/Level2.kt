@@ -18,7 +18,7 @@ class Level2 : BackMusicActivity() {
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "2.Беспорядок"
+    var name = "2. Беспорядок"
     private lateinit var prefs: SharedPreferences
     var lvlcheck = 2
     var soundcheck = 0

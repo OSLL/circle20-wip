@@ -24,7 +24,7 @@ class Level5 : BackMusicActivity() {
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "5.Ты тряси-тряси смартфон"
+    var name = "5. Ты тряси-тряси смартфон"
     var soundcheck = 0
 
     private var sensorManager: SensorManager? = null

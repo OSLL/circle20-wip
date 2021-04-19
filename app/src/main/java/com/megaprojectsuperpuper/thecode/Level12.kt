@@ -21,7 +21,7 @@ class Level12 : BackMusicActivity() {
     var text = ""
     var soundcheck = 0
     var check = ""
-    var name = "12.Старайся больше"
+    var name = "12. Старайся больше"
     var lvlcheck = 1
     var codecheck = 0
     private lateinit var prefs: SharedPreferences

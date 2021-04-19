@@ -20,7 +20,7 @@ class Level16 : BackMusicActivity() {
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "16.Найди кнопку"
+    var name = "16. Найди кнопку"
     var lvlcheck = 1
     var buttoncheck = 1
     var soundcheck = 0

@@ -20,7 +20,7 @@ class Level4 : BackMusicActivity() {
     var editcheck = true
     var text = ""
     var check = ""
-    var name = "4.Прислушайся"
+    var name = "4. Прислушайся"
     var lvlcheck = 4
     var soundcheck = 0
     private lateinit var prefs: SharedPreferences
